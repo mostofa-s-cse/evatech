@@ -10,7 +10,7 @@ class AboutController extends Controller
     //
     public function index(){
         $abouts = About::get();
-        return view('back-end.pages.about.index',compact('Abouts'));
+        return view('back-end.pages.about.index',compact('abouts'));
  } 
 
 }

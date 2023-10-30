@@ -7,6 +7,8 @@ use App\Http\Controllers\HireController;
 use App\Http\Controllers\ProvideController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,15 @@ Route::get('/dashboard/customer', [CustomerController::class, 'index'])->name('c
 
                    //about route started here
 Route::get('/dashboard/about', [AboutController::class, 'index'])->name('about.index');
+
+
+
+                   //Review route started here
+Route::get('/dashboard/review', [ReviewController::class, 'index'])->name('review.index');
+
+
+                   //contact route started here
+Route::get('/dashboard/contact', [ContactController::class, 'index'])->name('contact.index');
 
 
 
