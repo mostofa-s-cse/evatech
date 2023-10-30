@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('front-end.pages.home.index');
 });
+
+Route::resource('sliders',SliderController::class);

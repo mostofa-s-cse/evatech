@@ -1,6 +1,7 @@
 @extends('back-end.layouts.master')
+@section('title','Home')
 @section('content-header')
-    <div class="row mb-2">
+    <div class="row mb-2 px-2">
         <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
         </div><!-- /.col -->
@@ -13,7 +14,7 @@
     </div>
 @endsection
 @section('content')
-    <div class="row">
+    <div class="row px-2">
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
