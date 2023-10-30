@@ -19,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('back-end.dashboard');
 });
+
+Route::get('/home', function () {
+    return view('front-end.pages.home.index');
+});
