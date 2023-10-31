@@ -1,4 +1,5 @@
 @extends('back-end.layouts.master')
+@section('title','Hire create')
 @section('content-header')
     <div class="row mb-2">
         <div class="col-sm-6">
