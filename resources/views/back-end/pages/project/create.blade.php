@@ -1,15 +1,13 @@
 @extends('back-end.layouts.master')
-@section('title','Create Slider')
 @section('content-header')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
-    <div class="row mb-2 px-2">
+    <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Project Create</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Create Slider</li>
+                <li class="breadcrumb-item"><a href="#">Project Create</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </div><!-- /.col -->
     </div>
@@ -20,26 +18,27 @@
         <div class="col-12 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{route("slider.store")}}" id="doctorForm" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{route("project.store")}}" id="doctorForm" method="POST" enctype="multipart/form-data">
                         @csrf
+                            
                             <div class="form-group row">
-                                <label for="title" class="col-sm-3 col-form-label">Title</label>
+                                <label for="project_title" class="col-sm-3 col-form-label">Project Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="title" placeholder="Blog title here" name="title" required>
+                                    <input type="text" class="form-control" id="project_title" placeholder="Project title here" name="project_title" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="sub_title" class="col-sm-3 col-form-label">Sub Title</label>
+                                <label for="project_sub_title" class="col-sm-3 col-form-label">Project Sub Title</label>
                                 <div class="col-sm-9">
-                                    <textarea name="sub_title" class="form-control" id="sub_title" cols="30" rows="5"></textarea>
+                                    <textarea name="project_sub_title" class="form-control" id="project_sub_title" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="image" class="col-sm-3 col-form-label">Image</label>
+                                <label for="project_image" class="col-sm-3 col-form-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" name="image" @error('image') is-invalid @enderror>
+                                    <input type="file" class="form-control" name="project_image" @error('project_image') is-invalid @enderror>
                                 </div>
-                                @error('image')
+                                @error('project_image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

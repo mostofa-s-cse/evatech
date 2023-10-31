@@ -14,66 +14,54 @@
     </div>
 @endsection
 @section('content')
-    <div class="row px-2">
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>150</h3>
-
-                    <p>New Orders</p>
+    <div class="row">
+        
+        <!-- ./col -->
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="mt-3 text-center">
+                    <h2>
+                        <span class="float-center">Slider List</span>
+                        <a href="{{route("slider.create")}}" class="btn btn-primary float-right mr-3">Add Slider</a>
+                    </h2>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
+                <div class="card-body table-responsive">
+                    <table class="table" id="datatable" style="overflow: auto">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Sub Title</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $i=0;
+                            @endphp
+                            @foreach ($sliders as $slider)
+                            <tr>
+                                <td>{{ ++$i }}</td>
+                                <td class="text-wrap">{{ $slider->title }}</td>
+                                <td class="text-wrap">{{ $slider->sub_title }}</td>
+                                <td class="text-wrap">
+                                    @if($slider->image)
+                                    <img src="{{ asset('storage/images/'.$slider->image) }}" style="height: 50px;width:100px;">
+                                    @else 
+                                    <span>No image found!</span>
+                                    @endif
+                                </td>
+                                <td class="d-flex ">
+                                    <a href=""  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
+                                    <a href="" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                    <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>44</h3>
-
-                    <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h3>65</h3>
-
-                    <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
     </div>
 @endsection
