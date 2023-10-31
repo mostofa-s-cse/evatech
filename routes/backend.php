@@ -35,9 +35,13 @@ Route::post('project/create', [ProjectController::class, 'store'])->name('projec
 
 //Hire route started here
 Route::get('hire', [HireController::class, 'index'])->name('hire.index');
+Route::get('hire/create', [HireController::class, 'create'])->name('hire.create');
+Route::post('hire/create', [HireController::class, 'store'])->name('hire.store');
 
 //provide route started here
 Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
+Route::get('provide/create', [ProvideController::class, 'create'])->name('provide.create');
+Route::post('provide/create', [ProvideController::class, 'store'])->name('provide.store');
 
 //customer route started here
 Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
