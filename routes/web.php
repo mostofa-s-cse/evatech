@@ -29,6 +29,7 @@ Route::get('/', function () {
 });
 
 
+
                     // Slider route started here
 Route::get('/dashboard/slider', [SliderController::class, 'index'])->name('slider.index');
 Route::get('/dashboard/slider/create', [SliderController::class, 'create'])->name('slider.create');
@@ -67,4 +68,10 @@ Route::get('/dashboard/review', [ReviewController::class, 'index'])->name('revie
 Route::get('/dashboard/contact', [ContactController::class, 'index'])->name('contact.index');
 
 
+
+Route::get('/home', function () {
+    return view('front-end.pages.home.index');
+});
+
+Route::resource('sliders',SliderController::class);
 
