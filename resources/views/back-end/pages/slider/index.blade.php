@@ -1,13 +1,14 @@
 @extends('back-end.layouts.master')
+@section('title','Slider')
 @section('content-header')
-    <div class="row mb-2">
+    <div class="row mb-2 px-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Project</h1>
+            <h1 class="m-0">Dashboard</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Project</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Slider</li>
             </ol>
         </div><!-- /.col -->
     </div>
@@ -20,8 +21,8 @@
             <div class="card">
                 <div class="mt-3 text-center">
                     <h2>
-                        <span class="float-center">Project List</span>
-                        <a href="{{route("project.create")}}" class="btn btn-primary float-right mr-3">Add Project</a>
+                        <span class="float-center">Slider List</span>
+                        <a href="{{route("slider.create")}}" class="btn btn-primary float-right mr-3">Add Slider</a>
                     </h2>
                 </div>
                 <div class="card-body table-responsive">
@@ -29,9 +30,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                {{-- <th>Title</th> --}}
-                                <th>Project Title</th>
-                                <th>Project Sub Title</th>
+                                <th>Title</th>
+                                <th>Sub Title</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -40,14 +40,14 @@
                             @php
                                 $i=0;
                             @endphp
-                            @foreach ($projects as $project)
+                            @foreach ($sliders as $slider)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td class="text-wrap">{{ $project->project_title }}</td>
-                                <td class="text-wrap">{{ $project->project_sub_title }}</td>
+                                <td class="text-wrap">{{ $slider->title }}</td>
+                                <td class="text-wrap">{{ $slider->sub_title }}</td>
                                 <td class="text-wrap">
-                                    @if($project->project_image)
-                                    <img src="{{ asset('storage/images/'.$project->project_image) }}" style="height: 50px;width:100px;">
+                                    @if($slider->image)
+                                    <img src="{{ asset('storage/images/'.$slider->image) }}" style="height: 50px;width:100px;">
                                     @else 
                                     <span>No image found!</span>
                                     @endif
@@ -65,3 +65,4 @@
         </div>
     </div>
 @endsection
+

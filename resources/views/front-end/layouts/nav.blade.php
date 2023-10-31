@@ -39,7 +39,14 @@
                     <span class="text-secondary">Call: + 0123 456 7890</span>
                 </div>
                 <div class="d-flex align-items-center justify-content-center ms-4 ">
-                    <a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>
+                    @if (Route::has('login'))
+                
+                    @auth
+                    <a class="btn btn-success" href="{{ route('dashboard') }}" style="color: white">Dashboard</a>
+                    @else
+                        <a class="btn btn-success" href="{{ route('login') }}" style="color: white">Log in</a>
+                    @endauth
+                    @endif
                 </div>
             </div>
         </nav>
