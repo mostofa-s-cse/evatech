@@ -44,10 +44,14 @@ Route::post('/dashboard/project/create', [ProjectController::class, 'store'])->n
 
                    //Hire route started here
 Route::get('/dashboard/hire', [HireController::class, 'index'])->name('hire.index');
+Route::get('/dashboard/hire/create', [HireController::class, 'create'])->name('hire.create');
+Route::post('/dashboard/hire/create', [HireController::class, 'store'])->name('hire.store');
 
 
                    //provide route started here
 Route::get('/dashboard/provide', [ProvideController::class, 'index'])->name('provide.index');
+Route::get('/dashboard/provide/create', [ProvideController::class, 'create'])->name('provide.create');
+Route::post('/dashboard/provide/create', [ProvideController::class, 'store'])->name('provide.store');
 
 
                    //customer route started here
