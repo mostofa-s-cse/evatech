@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +12,8 @@ use \App\Http\Controllers\Admin\SliderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('dashboard', function () {
+    return view('back-end.dashboard');
 });
-//Route::get('/', function () {
-//    return view('back-end.dashboard');
-//});
-
-Route::get('/home', function () {
-    return view('front-end.pages.home.index');
-});
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-Auth::routes();
-
 
 
