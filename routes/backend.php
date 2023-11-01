@@ -48,9 +48,13 @@ Route::get('customer', [CustomerController::class, 'index'])->name('customer.ind
 
 //about route started here
 Route::get('about', [AboutController::class, 'index'])->name('about.index');
+Route::get('about/create', [AboutController::class, 'create'])->name('about.create');
+Route::post('about/create', [AboutController::class, 'store'])->name('about.store');
 
 //Review route started here
 Route::get('review', [ReviewController::class, 'index'])->name('review.index');
+Route::get('review/create', [ReviewController::class, 'create'])->name('review.create');
+Route::post('review/create', [ReviewController::class, 'store'])->name('review.store');
 
 //contact route started here
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');

@@ -16,7 +16,8 @@
 @section('content')
     <div class="row">
         
-        <!-- ./col --> <div class="col-sm-12">
+        <!-- ./col --> 
+        <div class="col-sm-12">
             <div class="card">
                 <div class="mt-3 text-center">
                     <h2>

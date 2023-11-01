@@ -15,4 +15,27 @@ class AboutController extends Controller
         return view('back-end.pages.about.index',compact('abouts'));
  } 
 
+ public function create()
+ {
+     return view('back-end.pages.about.create');
+ }
+
+ public function store(Request $request)
+ {   
+     $request->validate([
+         'title' => 'required',
+         'discription' => 'required',
+     ]);
+  
+     $user = new About;
+     $user->title = $request->input('title');
+     $user->discription = $request->input('discription');
+     $user->save();
+
+     return redirect()->route('about.index')->with([
+         'message' => 'User added successfully!', 
+         'status' => 'success'
+     ]);
+ }
+
 }
