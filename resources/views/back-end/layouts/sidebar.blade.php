@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("project.index")}}" class="nav-link">
+                    <a href="{{route("project.index")}}" class="nav-link" id="side-project">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Project Add
@@ -65,7 +65,7 @@
                     </a>
 
                 <li class="nav-item">
-                    <a href="{{route("hire.index")}}" class="nav-link">
+                    <a href="{{route("hire.index")}}" class="nav-link" id="side-hire">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
 
@@ -78,7 +78,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("provide.index")}}" class="nav-link">
+                    <a href="{{route("provide.index")}}" class="nav-link" id="side-provide">
                         <i class="nav-icon fas fa-tree"></i>
                         <p>
                             Provide
@@ -88,7 +88,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("customer.index")}}" class="nav-link">
+                    <a href="{{route("customer.index")}}" class="nav-link" id="side-customer">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Customer
@@ -98,7 +98,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("about.index")}}" class="nav-link">
+                    <a href="{{route("about.index")}}" class="nav-link" id="side-about">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             About
@@ -109,7 +109,7 @@
                 </li>
                 {{-- <li class="nav-header">EXAMPLES</li> --}}
                 <li class="nav-item">
-                    <a href="{{route("review.index")}}" class="nav-link">
+                    <a href="{{route("review.index")}}" class="nav-link" id="side-review">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Review
@@ -118,7 +118,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("contact.index")}}" class="nav-link">
+                    <a href="{{route("contact.index")}}" class="nav-link" id="side-contact">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Contact

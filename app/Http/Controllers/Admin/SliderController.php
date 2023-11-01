@@ -67,7 +67,7 @@ class SliderController extends Controller
                                     </a>
                                 </div>';
                     })
-                    ->rawColumns(['image','title', 'subtitle', 'status', 'action'])
+                    ->rawColumns(['image','title', 'sub_title', 'status', 'action'])
                     ->make(true);
             }
             return view('back-end.pages.slider.index');
