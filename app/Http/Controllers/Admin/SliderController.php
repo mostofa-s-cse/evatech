@@ -40,9 +40,57 @@ class SliderController extends Controller
         $user->save();
 
         return redirect()->route('slider.index')->with([
-            'message' => 'User added successfully!', 
+            'message' => 'Slider added successfully!', 
             'status' => 'success'
         ]);
     }
+
+    public function edit($id)
+    {
+       $sliders = Slider::find($id);
+        return view('back-end.pages.slider.edit',compact('sliders'));
+    }
+   
+   
+    public function update(Request $request, $id)
+       {   
+           $sliders = Slider::find($id);
+           $fileName = '';
+   
+           if ($request->hasFile('image')) {
+             $fileName = time() . '.' . $request->image->extension();
+             $request->image->storeAs('public/images', $fileName);
+             if ($sliders->image) {
+               Storage::delete('public/images/' . $sliders->image);
+             }
+           } else {
+             $fileName = $sliders->image;
+           }
+   
+           $sliders->title = $request->input('title');
+           $sliders->sub_title = trim($request->input('sub_title'));
+           $sliders->image = $fileName;
+           $sliders->save();
+   
+           return redirect()->route('slider.index')->with([
+               'message' => 'Slider updated successfully!', 
+               'status' => 'success'
+           ]);
+       }
+   
+       public function destroy($id)
+       {   
+           $sliders = Slider::find($id);
+           if($sliders->image){
+               Storage::delete('public/images/' . $sliders->image);
+           }
+           $sliders->delete();
+   
+           return redirect()->route('slider.index')->with([
+               'message' => 'Slider deleted successfully!', 
+               'status' => 'success'
+           ]);
+       }
+   
 
 }

@@ -27,6 +27,9 @@ Route::get('dashboard', [DashBoardController::class, 'index'])->name('dashboard'
 Route::get('slider', [SliderController::class, 'index'])->name('slider.index');
 Route::get('slider/create', [SliderController::class, 'create'])->name('slider.create');
 Route::post('slider/create', [SliderController::class, 'store'])->name('slider.store');
+Route::get('slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
+Route::get('slider/delete/{id}', [SliderController::class, 'destroy'])->name('slider.delete');
+Route::put('slider/edit/{id}', [SliderController::class, 'update'])->name('slider.update');
 
 //project route started here
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

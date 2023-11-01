@@ -1,13 +1,13 @@
 @extends('back-end.layouts.master')
-@section('title','Hire update')
+@section('title','Slider update')
 @section('content-header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Hire Update</h1>
+            <h1 class="m-0">Slider Update</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Hire Update</a></li>
+                <li class="breadcrumb-item"><a href="#">Slider Update</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </div><!-- /.col -->
@@ -19,27 +19,27 @@
         <div class="col-12 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{route("hire.update",$hires->id)}}" id="doctorForm" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{route("slider.update",$sliders->id)}}" id="doctorForm" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                             <div class="form-group row">
                                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="title" value={{$hires->title}} name="title" required>
+                                    <input type="text" class="form-control" id="title" value={{$sliders->title}} name="title" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sub_title" class="col-sm-3 col-form-label">Sub Title</label>
                                 <div class="col-sm-9">
-                                    <textarea name="sub_title" class="form-control" id="sub_title" cols="30" rows="5">{{$hires->sub_title}}</textarea>
+                                    <textarea name="sub_title" class="form-control" id="sub_title" cols="30" rows="5">{{$sliders->sub_title}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="image" class="col-sm-3 col-form-label">Image</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" name="image" @error('image') is-invalid @enderror>
-                                    @if($hires->image)
-                                    <img src="{{ asset('storage/images/'.$hires->image) }}" style="height: 50px;width:100px; margin-top:5px;">
+                                    @if($sliders->image)
+                                    <img src="{{ asset('storage/images/'.$sliders->image) }}" style="height: 50px;width:100px; margin-top:5px;">
                                 @else 
                                     <span>No image found!</span>
                                 @endif

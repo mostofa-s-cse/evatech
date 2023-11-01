@@ -53,8 +53,8 @@
                                     @endif
                                 </td>
                                 <td class="d-flex ">
-                                    <a href=""  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
-                                    <a href="" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
+                                    <a href="{{route("slider.edit",$slider->id)}}"  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
+                                    <a href="{{route("slider.delete",$slider->id)}}" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
