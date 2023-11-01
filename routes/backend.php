@@ -24,9 +24,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [DashBoardController::class, 'index'])->name('dashboard');
 // Slider route started here
-Route::get('slider', [SliderController::class, 'index'])->name('slider.index');
-Route::get('slider/create', [SliderController::class, 'create'])->name('slider.create');
-Route::post('slider/create', [SliderController::class, 'store'])->name('slider.store');
+//Route::get('slider', [SliderController::class, 'index'])->name('slider.index');
+//Route::get('slider/create', [SliderController::class, 'create'])->name('slider.create');
+//Route::post('slider/create', [SliderController::class, 'store'])->name('slider.store');
+
+Route::resource('slider',SliderController::class);
+Route::get('slider-status-change',[SliderController::class,'slider_status_change'])->name('slider-status-change');
 
 //project route started here
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

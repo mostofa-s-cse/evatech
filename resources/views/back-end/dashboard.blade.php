@@ -77,3 +77,11 @@
         <!-- ./col -->
     </div>
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#side-dashboard").addClass('active');
+        });
+
+    </script>
+@endsection

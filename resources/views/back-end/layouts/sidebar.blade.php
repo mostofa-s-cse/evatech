@@ -1,3 +1,6 @@
+@php
+    $user = \Illuminate\Support\Facades\DB::table('users')->first();
+@endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -13,7 +16,7 @@
                 <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Evana Jahan Chowdhury</a>
+                <a href="#" class="d-block">{{$user->name}}</a>
             </div>
         </div>
 
@@ -35,23 +38,19 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="{{url("/dashboard")}}" class="nav-link" id="side-dashboard">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-                            {{-- <i class="right fas fa-angle-left"></i> --}}
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                       
-                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("slider.index")}}" class="nav-link">
+                    <a href="{{route("slider.index")}}" class="nav-link" id="side-slider">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Slider 
+                            Slider
                         </p>
                     </a>
                 </li>
@@ -61,7 +60,7 @@
                         <p>
                             Project Add
                             {{-- <i class="fas fa-angle-left right"></i> --}}
-                            
+
                         </p>
                     </a>
 
@@ -76,7 +75,7 @@
 
                         </p>
                     </a>
-                   
+
                 </li>
                 <li class="nav-item">
                     <a href="{{route("provide.index")}}" class="nav-link">
@@ -86,7 +85,7 @@
                             {{-- <i class="fas fa-angle-left right"></i> --}}
                         </p>
                     </a>
-                   
+
                 </li>
                 <li class="nav-item">
                     <a href="{{route("customer.index")}}" class="nav-link">
@@ -96,7 +95,7 @@
                             {{-- <i class="fas fa-angle-left right"></i> --}}
                         </p>
                     </a>
-                    
+
                 </li>
                 <li class="nav-item">
                     <a href="{{route("about.index")}}" class="nav-link">
@@ -106,7 +105,7 @@
                             {{-- <i class="fas fa-angle-left right"></i> --}}
                         </p>
                     </a>
-                   
+
                 </li>
                 {{-- <li class="nav-header">EXAMPLES</li> --}}
                 <li class="nav-item">
@@ -126,7 +125,7 @@
                         </p>
                     </a>
                 </li>
-                
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
