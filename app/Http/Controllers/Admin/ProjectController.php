@@ -79,8 +79,8 @@ class ProjectController extends Controller
     public function destroy($id)
     {   
         $projects = Project::find($id);
-        if($projects->image){
-            Storage::delete('public/images/' . $projects->image);
+        if($projects->project_image){
+            Storage::delete('public/images/' . $projects->project_image);
         }
         $projects->delete();
 
@@ -91,5 +91,5 @@ class ProjectController extends Controller
     }
 
 
-    
+
 }

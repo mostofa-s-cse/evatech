@@ -54,8 +54,8 @@
                                     @endif
                                 </td>
                                 <td class="d-flex ">
-                                    <a href=""  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
-                                    <a href="" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
+                                    <a href="{{route("project.edit",$project->id)}}"  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
+                                    <a href="{{route("project.delete",$project->id)}}" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -65,4 +65,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+            $(function() {
+                $('#status').change(function() {
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).data('id');
+                    $.ajax({
+                        type: 'GET',
+                        dataType: "json",
+                        url: '/baby',
+                        data: {
+                            'status': status,
+                            'id': id
+                        },
+                        success: function(data) {
+                            console.log('Success');
+                        }
+                    })
+                })
+            })
+        });
+    </script>
 @endsection

@@ -3,7 +3,7 @@
 @section('content-header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Provide Create</h1>
+            <h1 class="m-0">Provide Update</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -19,13 +19,13 @@
         <div class="col-12 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{route("provides.update",$provides->id)}}" id="doctorForm" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{route("provide.update",$provides->id)}}" id="doctorForm" method="POST" enctype="multipart/form-data">
                         @csrf
                             @method('put')
                             <div class="form-group row">
                                 <label for="provide_title" class="col-sm-3 col-form-label">Provide Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="provide_title" value="{{$provides->provide_title}}" name="project_title" required>
+                                    <input type="text" class="form-control" id="provide_title" value="{{$provides->provide_title}}" name="provide_title" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -35,11 +35,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="project_image" class="col-sm-3 col-form-label">Image</label>
+                                <label for="provide_image" class="col-sm-3 col-form-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" name="project_image" @error('project_image') is-invalid @enderror>
+                                    <input type="file" class="form-control" name="provide_image" @error('project_image') is-invalid @enderror>
                                     @if($provides->provide_image)
-                                    <img src="{{ asset('storage/images/'.$projects->project_image) }}" style="height: 50px;width:100px; margin-top:5px;">
+                                    <img src="{{ asset('storage/images/'.$provides->provide_image) }}" style="height: 50px;width:100px; margin-top:5px;">
                                 @else 
                                     <span>No image found!</span>
                                 @endif 

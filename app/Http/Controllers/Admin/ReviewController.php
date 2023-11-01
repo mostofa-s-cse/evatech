@@ -40,10 +40,47 @@ class ReviewController extends Controller
      $user->save();
 
      return redirect()->route('review.index')->with([
-         'message' => 'User added successfully!', 
+         'message' => 'Review added successfully!', 
          'status' => 'success'
      ]);
  }
+ public function edit($id)
+ {
+     $reviews = Review::find($id);
+     return view('back-end.pages.hire.edit',compact('reviews'));
+ }
+
+
+ public function update(Request $request, $id)
+    {   
+        $reviews = Hire::find($id);
+        
+        $reviews->title = $request->input('title');
+        $reviews->sub_title = $request->input('sub_title');
+        $reviews->name = $request->input('name');
+        $reviews->designation = $request->input('designation');
+        $reviews->save();
+
+        return redirect()->route('review.index')->with([
+            'message' => 'Review updated successfully!', 
+            'status' => 'success'
+        ]);
+    }
+
+    public function destroy($id)
+    {   
+        $reviews = Review::find($id);
+
+        if ($reviews != null) {
+            $reviews->delete();
+            return redirect()->route('review.index')->with(['message'=> 'Successfully deleted!!']);
+        }
+    
+        return redirect()->route('review.index')->with(['message'=> 'Wrong ID!!']);
+
+    }
+
+
 
 
 }

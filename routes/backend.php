@@ -51,6 +51,9 @@ Route::put('hire/edit/{id}', [HireController::class, 'update'])->name('hire.upda
 Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
 Route::get('provide/create', [ProvideController::class, 'create'])->name('provide.create');
 Route::post('provide/create', [ProvideController::class, 'store'])->name('provide.store');
+Route::get('provide/edit/{id}', [ProvideController::class, 'edit'])->name('provide.edit');
+Route::get('provide/delete/{id}', [ProvideController::class, 'destroy'])->name('provide.delete');
+Route::put('provide/edit/{id}', [ProvideController::class, 'update'])->name('provide.update');
 
 //customer route started here
 Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
@@ -67,7 +70,9 @@ Route::put('about/edit/{id}', [AboutController::class, 'update'])->name('about.u
 Route::get('review', [ReviewController::class, 'index'])->name('review.index');
 Route::get('review/create', [ReviewController::class, 'create'])->name('review.create');
 Route::post('review/create', [ReviewController::class, 'store'])->name('review.store');
-
+Route::get('review/edit/{id}', [ReviewController::class, 'edit'])->name('review.edit');
+Route::get('review/delete/{id}', [ReviewController::class, 'destroy'])->name('review.delete');
+Route::put('review/edit/{id}', [ReviewController::class, 'update'])->name('review.update');
 //contact route started here
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 
