@@ -146,7 +146,7 @@ class SliderController extends Controller
         $request->validate([
             'title' => 'required',
             'sub_title' => 'required',
-            'image' => 'image', // You can add validation for image type here, but it's not required for updates
+            'image' => 'required|image'
         ]);
 
         try {

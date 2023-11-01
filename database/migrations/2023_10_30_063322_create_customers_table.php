@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('sub_title')->nullable();
             $table->string('image');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

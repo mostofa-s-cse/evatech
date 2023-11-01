@@ -40,12 +40,10 @@ Route::get('hire-status-change',[HireController::class,'hire_status_change'])->n
 Route::resource('provide',ProvideController::class);
 Route::get('provide-status-change',[ProvideController::class,'provide_status_change'])->name('provide-status-change');
 
-//Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
-//Route::get('provide/create', [ProvideController::class, 'create'])->name('provide.create');
-//Route::post('provide/create', [ProvideController::class, 'store'])->name('provide.store');
-
 //customer route started here
-Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
+Route::resource('customer',CustomerController::class);
+Route::get('customer-status-change',[CustomerController::class,'customer_status_change'])->name('customer-status-change');
+
 
 //about route started here
 Route::get('about', [AboutController::class, 'index'])->name('about.index');

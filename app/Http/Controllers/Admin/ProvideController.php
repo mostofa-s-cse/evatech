@@ -146,7 +146,7 @@ class ProvideController extends Controller
         $request->validate([
             'title' => 'required',
             'sub_title' => 'required',
-            'image' => 'image', // You can add validation for image type here, but it's not required for updates
+            'image' => 'required|image'
         ]);
 
         try {
@@ -203,7 +203,7 @@ class ProvideController extends Controller
         }
     }
 
-    public function hire_status_change(Request $request)
+    public function customer_status_change(Request $request)
     {
         {
             $request->validate([
