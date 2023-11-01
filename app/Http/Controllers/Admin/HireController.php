@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Storage;
 use App\Models\Hire;
 
 
@@ -38,8 +38,57 @@ class HireController extends Controller
      $user->save();
 
      return redirect()->route('hire.index')->with([
-         'message' => 'User added successfully!', 
+         'message' => 'Hire added successfully!', 
          'status' => 'success'
      ]);
  }
+
+ public function edit($id)
+ {
+    $hires = Hire::find($id);
+     return view('back-end.pages.hire.edit',compact('hires'));
+ }
+
+
+ public function update(Request $request, $id)
+    {   
+        $hires = Hire::find($id);
+        $fileName = '';
+
+        if ($request->hasFile('image')) {
+          $fileName = time() . '.' . $request->image->extension();
+          $request->image->storeAs('public/images', $fileName);
+          if ($hires->image) {
+            Storage::delete('public/images/' . $hires->image);
+          }
+        } else {
+          $fileName = $hires->image;
+        }
+
+        $hires->title = $request->input('title');
+        $hires->sub_title = trim($request->input('sub_title'));
+        $hires->image = $fileName;
+        $hires->save();
+
+        return redirect()->route('hire.index')->with([
+            'message' => 'Hire updated successfully!', 
+            'status' => 'success'
+        ]);
+    }
+
+    public function destroy($id)
+    {   
+        $hires = Hire::find($id);
+        if($hires->image){
+            Storage::delete('public/images/' . $hires->image);
+        }
+        $hires->delete();
+
+        return redirect()->route('hire.index')->with([
+            'message' => 'User deleted successfully!', 
+            'status' => 'success'
+        ]);
+    }
+
+
 }

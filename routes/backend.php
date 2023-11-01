@@ -37,6 +37,9 @@ Route::post('project/create', [ProjectController::class, 'store'])->name('projec
 Route::get('hire', [HireController::class, 'index'])->name('hire.index');
 Route::get('hire/create', [HireController::class, 'create'])->name('hire.create');
 Route::post('hire/create', [HireController::class, 'store'])->name('hire.store');
+Route::get('hire/edit/{id}', [HireController::class, 'edit'])->name('hire.edit');
+Route::get('hire/delete/{id}', [HireController::class, 'destroy'])->name('hire.delete');
+Route::put('hire/edit/{id}', [HireController::class, 'update'])->name('hire.update');
 
 //provide route started here
 Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
