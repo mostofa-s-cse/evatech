@@ -46,8 +46,8 @@
                                 <td class="text-wrap">{{ $about->title }}</td>
                                 <td class="text-wrap">{{ $about->discription }}</td>
                                 <td class="d-flex ">
-                                    <a href=""  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
-                                    <a href="" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
+                                    <a href="{{route("about.edit",$about->id)}}"  role="button" class="btn btn-sm btn-outline-success mr-1 editbtn"><i class="fa-solid fa-pen-to-square"></i>Update</a>
+                                    <a href="{{route("about.delete",$about->id)}}" id="" role="button" class="btn btn-sm btn-outline-danger deletebtn">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -56,6 +56,9 @@ Route::get('customer', [CustomerController::class, 'index'])->name('customer.ind
 Route::get('about', [AboutController::class, 'index'])->name('about.index');
 Route::get('about/create', [AboutController::class, 'create'])->name('about.create');
 Route::post('about/create', [AboutController::class, 'store'])->name('about.store');
+Route::get('about/edit/{id}', [AboutController::class, 'edit'])->name('about.edit');
+Route::get('about/delete/{id}', [AboutController::class, 'destroy'])->name('about.delete');
+Route::put('about/edit/{id}', [AboutController::class, 'update'])->name('about.update');
 
 //Review route started here
 Route::get('review', [ReviewController::class, 'index'])->name('review.index');

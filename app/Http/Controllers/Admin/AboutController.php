@@ -38,4 +38,39 @@ class AboutController extends Controller
      ]);
  }
 
+ public function edit($id)
+ {
+    $abouts = About::find($id);
+     return view('back-end.pages.about.edit',compact('abouts'));
+ }
+
+
+ public function update(Request $request, $id)
+    {   
+        $abouts = About::find($id);
+        $abouts->title = $request->input('title');
+        $abouts->discription = $request->input('discription');
+        $abouts->save();
+
+        return redirect()->route('about.index')->with([
+            'message' => 'About updated successfully!', 
+            'status' => 'success'
+        ]);
+    }
+
+    public function destroy($id)
+    {   
+        $abouts = About::find($id);
+
+        if ($abouts != null) {
+            $abouts->delete();
+            return redirect()->route('about.index')->with(['message'=> 'Successfully deleted!!']);
+        }
+    
+        return redirect()->route('about.index')->with(['message'=> 'Wrong ID!!']);
+
+    }
+
+
+
 }
