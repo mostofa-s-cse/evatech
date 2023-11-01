@@ -35,6 +35,9 @@ Route::put('slider/edit/{id}', [SliderController::class, 'update'])->name('slide
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
 Route::get('project/create', [ProjectController::class, 'create'])->name('project.create');
 Route::post('project/create', [ProjectController::class, 'store'])->name('project.store');
+Route::get('project/edit/{id}', [ProjectController::class, 'edit'])->name('project.edit');
+Route::get('project/delete/{id}', [ProjectController::class, 'destroy'])->name('project.delete');
+Route::put('project/edit/{id}', [ProjectController::class, 'update'])->name('project.update');
 
 //Hire route started here
 Route::get('hire', [HireController::class, 'index'])->name('hire.index');
