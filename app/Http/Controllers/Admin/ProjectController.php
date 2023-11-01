@@ -153,7 +153,7 @@ class ProjectController extends Controller
 
             if (!$slider) {
                 return redirect()->route('project.index')
-                    ->with('error', 'Slider not found');
+                    ->with('error', 'Project not found');
             }
 
             $image_url = $slider->image; // Default to the existing image URL

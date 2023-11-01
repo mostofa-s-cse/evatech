@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('provides', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('sub-title')->nullable();
-            $table->string('provide_title');
-            $table->string('provide_sub_title');
-            $table->string('provide_image');
+            $table->string('title');
+            $table->string('sub_title');
+            $table->string('image');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

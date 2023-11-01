@@ -31,19 +31,18 @@ Route::get('slider-status-change',[SliderController::class,'slider_status_change
 Route::resource('project',ProjectController::class);
 Route::get('project-status-change',[ProjectController::class,'project_status_change'])->name('project-status-change');
 
-//Route::get('project', [ProjectController::class, 'index'])->name('project.index');
-//Route::get('project/create', [ProjectController::class, 'create'])->name('project.create');
-//Route::post('project/create', [ProjectController::class, 'store'])->name('project.store');
 
 //Hire route started here
-Route::get('hire', [HireController::class, 'index'])->name('hire.index');
-Route::get('hire/create', [HireController::class, 'create'])->name('hire.create');
-Route::post('hire/create', [HireController::class, 'store'])->name('hire.store');
+Route::resource('hire',HireController::class);
+Route::get('hire-status-change',[HireController::class,'hire_status_change'])->name('hire-status-change');
 
 //provide route started here
-Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
-Route::get('provide/create', [ProvideController::class, 'create'])->name('provide.create');
-Route::post('provide/create', [ProvideController::class, 'store'])->name('provide.store');
+Route::resource('provide',ProvideController::class);
+Route::get('provide-status-change',[ProvideController::class,'provide_status_change'])->name('provide-status-change');
+
+//Route::get('provide', [ProvideController::class, 'index'])->name('provide.index');
+//Route::get('provide/create', [ProvideController::class, 'create'])->name('provide.create');
+//Route::post('provide/create', [ProvideController::class, 'store'])->name('provide.store');
 
 //customer route started here
 Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
