@@ -139,14 +139,14 @@ class CustomerController extends Controller
 
         try {
             // Retrieve the existing slider record by its ID
-            $slider = DB::table('customers')->where('id', $id)->first();
+            $customer = DB::table('customers')->where('id', $id)->first();
 
-            if (!$slider) {
+            if (!$customer) {
                 return redirect()->route('customer.index')
                     ->with('error', 'Customer not found');
             }
 
-            $image_url = $slider->image; // Default to the existing image URL
+            $image_url = $customer->image; // Default to the existing image URL
 
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();

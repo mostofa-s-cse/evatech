@@ -150,14 +150,14 @@ class HireController extends Controller
 
         try {
             // Retrieve the existing slider record by its ID
-            $slider = DB::table('hires')->where('id', $id)->first();
+            $hires = DB::table('hires')->where('id', $id)->first();
 
-            if (!$slider) {
+            if (!$hires) {
                 return redirect()->route('hire.index')
                     ->with('error', 'Hire not found');
             }
 
-            $image_url = $slider->image; // Default to the existing image URL
+            $image_url = $hires->image; // Default to the existing image URL
 
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();

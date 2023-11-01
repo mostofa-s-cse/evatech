@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class SliderController extends Controller
 {
-    //
 
      /**
      * Display a listing of the resource.

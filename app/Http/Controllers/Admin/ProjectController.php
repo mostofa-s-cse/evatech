@@ -149,14 +149,14 @@ class ProjectController extends Controller
 
         try {
             // Retrieve the existing slider record by its ID
-            $slider = DB::table('projects')->where('id', $id)->first();
+            $project = DB::table('projects')->where('id', $id)->first();
 
-            if (!$slider) {
+            if (!$project) {
                 return redirect()->route('project.index')
                     ->with('error', 'Project not found');
             }
 
-            $image_url = $slider->image; // Default to the existing image URL
+            $image_url = $project->image; // Default to the existing image URL
 
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();

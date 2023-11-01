@@ -151,14 +151,14 @@ class ProvideController extends Controller
 
         try {
             // Retrieve the existing slider record by its ID
-            $slider = DB::table('provides')->where('id', $id)->first();
+            $provide = DB::table('provides')->where('id', $id)->first();
 
-            if (!$slider) {
+            if (!$provide) {
                 return redirect()->route('provide.index')
                     ->with('error', 'Provides not found');
             }
 
-            $image_url = $slider->image; // Default to the existing image URL
+            $image_url = $provide->image; // Default to the existing image URL
 
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();
