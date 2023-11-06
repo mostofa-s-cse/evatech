@@ -1,14 +1,14 @@
 @extends('back-end.layouts.master')
-@section('title','Create Provide')
+@section('title','Create Review')
 @section('content-header')
     <div class="row mb-2 px-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Create Provide</h1>
+            <h1 class="m-0">Create Review</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Provide</li>
+                <li class="breadcrumb-item active">Create Review</li>
             </ol>
         </div><!-- /.col -->
     </div>
@@ -21,11 +21,11 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Create Provide</h3>
+                            <h3 class="card-title">Create Review</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('provide.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('review.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="card-body">
@@ -36,6 +36,14 @@
                                 <div class="form-group">
                                     <label for="exampleInputSubtitle">Sub Title</label>
                                     <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputTitle">Name</label>
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Designation</label>
+                                    <textarea class="form-control" rows="3" placeholder="designation ..." name="designation"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
@@ -66,7 +74,7 @@
 @section('js')
     <script>
         $(document).ready(function () {
-            $("#side-provide").addClass('active');
+            $("#side-review").addClass('active');
         });
 
     </script>

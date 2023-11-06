@@ -40,11 +40,11 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-center ms-4 ">
                     @if (Route::has('login'))
-                
+
                     @auth
-                    <a class="btn btn-success" href="{{ route('dashboard') }}" style="color: white">Dashboard</a>
+                    <a class="btn btn-success" href="{{ route('dashboard') }}" target="_blank" style="color: white">Dashboard</a>
                     @else
-                        <a class="btn btn-success" href="{{ route('login') }}" style="color: white">Log in</a>
+                        <a class="btn btn-success" href="{{ route('login') }}" target="_blank" style="color: white">Log in</a>
                     @endauth
                     @endif
                 </div>

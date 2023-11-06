@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/', function () {
-    return view('front-end.pages.home.index');
-});
+// Route::get('/', function () {
+//     return view('front-end.pages.home.index');
+// });
+
+Route::get('/', [HomeController::class, 'frontendHome'])->name('frontend.index');
