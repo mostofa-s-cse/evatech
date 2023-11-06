@@ -46,15 +46,14 @@ Route::get('customer-status-change',[CustomerController::class,'customer_status_
 
 
 //about route started here
-Route::get('about', [AboutController::class, 'index'])->name('about.index');
+Route::resource('about',AboutController::class);
 
 //Review route started here
 Route::resource('review',ReviewController::class);
 Route::get('review-status-change',[ReviewController::class,'review_status_change'])->name('review-status-change');
 
 //contact route started here
-Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-
+Route::resource('contact',ContactController::class);
 
 
 
