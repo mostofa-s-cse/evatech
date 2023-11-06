@@ -1,4 +1,5 @@
 @extends('front-end.layouts.master')
+@section('title','Home')
 @section('content')
 <!-- Carousel Start -->
 <div class="container-fluid px-0">
