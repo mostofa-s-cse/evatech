@@ -47,6 +47,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route("site-info.index")}}" class="nav-link" id="side-siteinfo">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Site Info
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route("slider.index")}}" class="nav-link" id="side-slider">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

@@ -30,3 +30,7 @@ Auth::routes();
 // });
 
 Route::get('/', [HomeController::class, 'frontendHome'])->name('frontend.index');
+Route::get('about-us', [HomeController::class, 'about_us'])->name('abouts');
+Route::get('services', [HomeController::class, 'services'])->name('services');
+Route::get('projects', [HomeController::class, 'projects'])->name('projects');
+Route::get('contact-us', [HomeController::class, 'contact_us'])->name('contact');

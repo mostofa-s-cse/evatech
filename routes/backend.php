@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProvideController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SliderController;
+use \App\Http\Controllers\Admin\SiteInfoController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::get('review-status-change',[ReviewController::class,'review_status_change
 
 //contact route started here
 Route::resource('contact',ContactController::class);
+//site info
+Route::resource('site-info',SiteInfoController::class);
 
 
 
