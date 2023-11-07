@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                 <div class="navbar-nav ms-auto mx-xl-auto p-0">
-                    <a href="index.html" class="nav-item nav-link active text-secondary">Home</a>
+                    <a href="{{ route('frontend.index') }}" class="nav-item nav-link active text-secondary">Home</a>
                     <a href="{{ route('abouts') }}" class="nav-item nav-link">About</a>
                     <a href="{{ route('services') }}" class="nav-item nav-link">Services</a>
                     <a href="{{ route('projects') }}" class="nav-item nav-link">Projects</a>
