@@ -1,3 +1,6 @@
+@php
+    $slider = \Illuminate\Support\Facades\DB::table('sliders')->get();
+@endphp
 @extends('front-end.layouts.master')
 @section('title','Home')
 @section('content')
@@ -9,30 +12,19 @@
             <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img src="{{asset('frontend/img/carousel-1.jpg')}}" class="img-fluid" alt="First slide">
-                <div class="carousel-caption">
-                    <div class="container carousel-content">
-                        <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
-                        <h1 class="text-white display-1 mb-4 animated fadeInRight">An Innovative IT Solutions Agency</h1>
-                        <p class="mb-4 text-white fs-5 animated fadeInDown">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Pellentesque aliquam dolor eget urna ultricies tincidunt.</p>
-                        <a href="" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
-                        <a href="" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
+            @foreach($slider as $key => $item)
+                <div class="carousel-item{{ $key === 0 ? ' active' : '' }}">
+                    <img src="{{ asset($item->image) }}" class="img-fluid" alt="Slide {{ $key + 1 }}">
+                    <div class="carousel-caption">
+                        <div class="container carousel-content">
+                            <h6 class="text-secondary h4 animated fadeInUp">{{ $item->top_title }}</h6>
+                            <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $item->title }}</h1>
+                            <a href="{{ route('abouts') }}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
+                            <a href="{{ route('contact') }}" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('frontend/img/carousel-2.jpg')}}" class="img-fluid" alt="Second slide">
-                <div class="carousel-caption">
-                    <div class="container carousel-content">
-                        <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
-                        <h1 class="text-white display-1 mb-4 animated fadeInLeft">Quality Digital Services You Really Need!</h1>
-                        <p class="mb-4 text-white fs-5 animated fadeInDown">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Pellentesque aliquam dolor eget urna ultricies tincidunt.</p>
-                        <a href="" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
-                        <a href="" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -654,4 +646,12 @@
     </div>
 </div>
 <!-- Contact End -->
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#home-home").addClass('active');
+        });
+
+    </script>
 @endsection

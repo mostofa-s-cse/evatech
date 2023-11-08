@@ -29,8 +29,8 @@ class SliderController extends Controller
                         return $data->title;
 
                     })
-                    ->addColumn('sub_title', function ($data) {
-                        return $data->sub_title;
+                    ->addColumn('top_title', function ($data) {
+                        return $data->top_title;
                     })
                     ->addColumn('image', function ($data) {
                         return '<a target="_blank" href="' . asset($data->image) . '">
@@ -93,7 +93,7 @@ class SliderController extends Controller
 {
     $request->validate([
         'title' => 'required',
-        'sub_title' => 'required',
+        'top_title' => 'required',
         'image' => 'required|image',
     ]);
 
@@ -108,7 +108,7 @@ class SliderController extends Controller
 
         DB::table('sliders')->insert([
             'title' => $request->title,
-            'sub_title' => $request->sub_title,
+            'top_title' => $request->top_title,
             'image' => $image_url,
             'status' => 0,
             'created_at' => Carbon::now(),
@@ -144,7 +144,7 @@ class SliderController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'top_title' => 'required',
             'image' => 'required|image'
         ]);
 
@@ -171,7 +171,7 @@ class SliderController extends Controller
             // Update the slider record
             DB::table('sliders')->where('id', $id)->update([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'top_title' => $request->top_title,
                 'image' => $image_url,
                 // You can update other fields as needed
             ]);

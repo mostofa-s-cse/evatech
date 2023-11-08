@@ -41,5 +41,6 @@
 
 <!-- JavaScript Libraries -->
 @include('front-end.layouts.js')
+@yield('js')
 </body>
 </html>
