@@ -13,7 +13,7 @@
                 </a>
 
                 @php
-                    $description = substr($about->description,0, 150);
+                    $description = ($about) ? substr($about->description, 0, 150) : null;
                 @endphp
                 <p class="mt-4 text-light">{!! $description !!}... <a href="{{ route('abouts') }}">More details</a></p>
                 <div class="d-flex hightech-link">

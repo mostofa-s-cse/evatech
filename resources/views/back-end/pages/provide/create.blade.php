@@ -35,7 +35,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputSubtitle"> Description </label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="description">
+                                    <textarea type="text" class="form-control" id="exampleInputSubtitle" name="description">
+                                        
+                                    </textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>

@@ -12,6 +12,13 @@
     $reviews = \Illuminate\Support\Facades\DB::table('reviews')
     ->where('status',1)
     ->get();
+    $customers = \Illuminate\Support\Facades\DB::table('customers')
+    ->where('status',1)
+    ->get();
+    $hires = \Illuminate\Support\Facades\DB::table('hires')
+    ->where('status',1)
+    ->get();
+
 @endphp
 @extends('front-end.layouts.master')
 @section('title','Home')
@@ -139,13 +146,13 @@
             <h1>Why You Should Hire Us?</h1>
         </div>
         <div class="row g-5 services-inner">
-            @foreach($provides as $key => $item)
+            @foreach($hires as $key => $item)
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
                     <div class="services-item bg-light">
                         <div class="p-4 text-center services-content">
                             <div class="services-content-icon">
                                 <img class="mb-4 img-fluid service-image" src="{{ asset($item->image) }}" alt="">
-                                <h4 class="mb-3">{{ $item->title }}</h4>
+                                <h4 class="mb-3">{{ $item->name }}</h4>
 {{--                                <p class="mb-4">{{$item->description}}</p>--}}
 {{--                                <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>--}}
                             </div>
@@ -438,40 +445,46 @@
 {{--</div>--}}
 <!-- Team End -->
 
-<!-- Testimonial Start -->
+
 <div class="container-fluid testimonial py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Testimonial</h5>
-            <h1>Our Client Saying!</h1>
+            <h5 class="text-primary">Our Customer</h5>
+            <h1>Our Customers Saying!</h1>
         </div>
-        <div class="owl-carousel testimonial-carousel wow fadeIn d-flex align-items-center" data-wow-delay=".5s">
+        <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
+            @foreach($customers as $item)
+                <div class="testimonial-item d-flex align-items-center m-1">
+                    <div>
+                        <img class="img-fluid" src="{{ asset($item->image) }}" alt="" style="height: 10rem">
+                    </div>
+                    <!-- Additional content can be added here -->
+                </div>
+            @endforeach
+        </div>
+        <div class="owl-carousel testimonial-carousel mt-4 wow fadeIn" data-wow-delay=".5s">
             @foreach($reviews as $item)
-            <div class="testimonial-item border p-4 m-2 rounded">
-                <div class="d-flex align-items-center">
+                <div class="testimonial-item2 m-2 text-center">
                     <div class="">
-                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px;height: 50px">
+                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px; height: 50px" class="mx-auto mb-1">
                     </div>
                     <div class="ms-4">
                         <h4 class="text-secondary">{{$item->name}}</h4>
                         <p class="m-0 pb-3">{{$item->designation}}</p>
-{{--                        <div class="d-flex pe-5">--}}
-{{--                            <i class="fas fa-star me-1 text-primary"></i>--}}
-{{--                            <i class="fas fa-star me-1 text-primary"></i>--}}
-{{--                            <i class="fas fa-star me-1 text-primary"></i>--}}
-{{--                            <i class="fas fa-star me-1 text-primary"></i>--}}
-{{--                            <i class="fas fa-star me-1 text-primary"></i>--}}
-{{--                        </div>--}}
+                    </div>
+                    <div class="px-2">
+                        <p class="mb-0">{{$item->description}}</p>
                     </div>
                 </div>
-                <div class="border-top mt-2 pt-3">
-                    <p class="mb-0">{{$item->description}}</p>
-                </div>
-            </div>
             @endforeach
+
         </div>
     </div>
 </div>
+
+
+<!-- Testimonial Start -->
+
 
 
 
