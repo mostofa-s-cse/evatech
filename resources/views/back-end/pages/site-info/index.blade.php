@@ -28,7 +28,6 @@
                         <form action="{{route('site-info.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
-
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -58,7 +57,6 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
 {{--                                <button type="submit" class="btn btn-default float-right">Cancel</button>--}}
@@ -75,6 +73,5 @@
         $(document).ready(function () {
             $("#side-siteinfo").addClass('active');
         });
-
     </script>
 @endsection

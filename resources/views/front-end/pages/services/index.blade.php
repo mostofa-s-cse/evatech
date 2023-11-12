@@ -136,3 +136,11 @@
     </div>
     <!-- Services End -->
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#home-services").addClass('active');
+        });
+
+    </script>
+@endsection

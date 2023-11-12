@@ -126,3 +126,11 @@
     </div>
     <!-- Contact End -->
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#home-contact").addClass('active');
+        });
+
+    </script>
+@endsection

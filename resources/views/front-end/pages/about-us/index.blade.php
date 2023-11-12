@@ -166,3 +166,11 @@
     <!-- Team End -->
 
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#home-about").addClass('active');
+        });
+
+    </script>
+@endsection

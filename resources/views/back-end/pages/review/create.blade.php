@@ -31,25 +31,25 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Title</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputSubtitle">Sub Title</label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="name">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Designation</label>
-                                    <textarea class="form-control" rows="3" placeholder="designation ..." name="designation"></textarea>
+                                    <input class="form-control" placeholder="designation ..." name="designation" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="3" placeholder="designation ..." name="description" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">

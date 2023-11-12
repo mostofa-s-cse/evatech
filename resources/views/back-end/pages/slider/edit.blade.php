@@ -30,12 +30,12 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputTitle">Title</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" value="{{$sliders->title}}">
+                                    <label for="exampleInputTitle">Top Title</label>
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="top_title" value="{{$sliders->top_title}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputSubtitle">Sub Title</label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title" value="{{$sliders->sub_title}}">
+                                    <label for="exampleInputSubtitle">Title</label>
+                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="title" value="{{$sliders->title}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>

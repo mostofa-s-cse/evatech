@@ -32,8 +32,8 @@
                                 <tr class="" style="text-align:center; ">
                                     <th style="width: 7%">SL</th>
                                     <th style="width: 15%">Image</th>
-                                    <th style="width: 25%">Title</th>
-                                    <th style="width: 35%">Sub Title</th>
+                                    <th style="width: 25%">Top Title</th>
+                                    <th style="width: 35%">Title</th>
                                     <th style="width: 8%">Status</th>
                                     <th style="width: 10%">Action</th>
                                 </tr>
@@ -82,8 +82,8 @@
             columns: [
                 {data: "DT_RowIndex", name: "DT_RowIndex", orderable: false,},
                 {data: 'image', name: 'image', orderable: true,},
-                {data: 'title', name: 'title', orderable: true,},
-                {data: 'sub_title', name: 'sub_title', orderable: true},
+                {data: 'top_title', name: 'top_title', orderable: true,},
+                {data: 'title', name: 'title', orderable: true},
                 {data: 'status', name: 'status', orderable: true},
                 {data: 'action', searchable: false, orderable: false}
 

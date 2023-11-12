@@ -142,3 +142,11 @@
     </div>
     <!-- Project End -->
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $("#home-projects").addClass('active');
+        });
+
+    </script>
+@endsection

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('provides', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('sub_title');
+            $table->longText('description');
             $table->string('image');
             $table->string('status')->default(0);
             $table->timestamps();
