@@ -34,8 +34,8 @@
                                     <input type="text" class="form-control" id="exampleInputTitle" name="title">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputSubtitle">Sub Title</label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title">
+                                    <label for="exampleInputSubtitle"> Description </label>
+                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="description">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>

@@ -35,8 +35,8 @@ class ProvideController extends Controller
                     ->addColumn('title', function ($data) {
                         return $data->title;
                     })
-                    ->addColumn('sub_title', function ($data) {
-                        return $data->sub_title;
+                    ->addColumn('description', function ($data) {
+                        return $data->description;
                     })
                     ->addColumn('status', function ($data) {
                         if ($data->status == 1) {
@@ -67,7 +67,7 @@ class ProvideController extends Controller
                                     </a>
                                 </div>';
                     })
-                    ->rawColumns(['image','title', 'sub_title', 'status', 'action'])
+                    ->rawColumns(['image','title', 'description', 'status', 'action'])
                     ->make(true);
             }
             return view('back-end.pages.provide.index');
@@ -94,7 +94,7 @@ class ProvideController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'description' => 'required',
             'image' => 'required|image',
         ]);
 
@@ -109,7 +109,7 @@ class ProvideController extends Controller
 
             DB::table('provides')->insert([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'description' => $request->description,
                 'image' => $image_url,
                 'status' => 0,
                 'created_at' => Carbon::now(),
@@ -172,7 +172,7 @@ class ProvideController extends Controller
             // Update the slider record
             DB::table('provides')->where('id', $id)->update([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'description' => $request->description,
                 'image' => $image_url,
                 // You can update other fields as needed
             ]);
@@ -203,7 +203,7 @@ class ProvideController extends Controller
         }
     }
 
-    public function customer_status_change(Request $request)
+    public function provide_status_change(Request $request)
     {
         {
             $request->validate([

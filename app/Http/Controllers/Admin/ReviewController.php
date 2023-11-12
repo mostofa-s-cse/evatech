@@ -34,8 +34,8 @@ class ReviewController extends Controller
                     ->addColumn('title', function ($data) {
                         return $data->title;
                     })
-                    ->addColumn('sub_title', function ($data) {
-                        return $data->sub_title;
+                    ->addColumn('description', function ($data) {
+                        return $data->description;
                     })
                     ->addColumn('name', function ($data) {
                         return $data->name;
@@ -72,7 +72,7 @@ class ReviewController extends Controller
                                     </a>
                                 </div>';
                     })
-                    ->rawColumns(['title','sub_title', 'name','designation','image','status', 'action'])
+                    ->rawColumns(['description', 'name','designation','image','status', 'action'])
                     ->make(true);
             }
             return view('back-end.pages.review.index');
@@ -97,9 +97,10 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'description' => 'required',
             'name' => 'required',
             'designation'=>'required'
         ]);
@@ -114,8 +115,8 @@ class ReviewController extends Controller
             }
 
             DB::table('reviews')->insert([
+                'description' => $request->description,
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
                 'name' => $request->name,
                 'designation'=>$request->designation,
                 'image' => $image_url,
@@ -152,8 +153,8 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'description' => 'required',
             'title' => 'required',
-            'sub_title' => 'required',
             'name' => 'required',
             'designation'=>'required'
         ]);
@@ -181,7 +182,7 @@ class ReviewController extends Controller
             // Update the slider record
             DB::table('reviews')->where('id', $id)->update([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'description' => $request->description,
                 'name' => $request->name,
                 'designation'=>$request->designation,
                 'image' => $image_url,

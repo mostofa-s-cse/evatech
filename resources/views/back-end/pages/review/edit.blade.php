@@ -31,20 +31,21 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Title</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" value="{{$reviews->name}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputSubtitle">Sub Title</label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title" value="{{$reviews->sub_title}}">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" value="{{$reviews->title}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="name" value="{{$reviews->name}}">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="name" value="{{$reviews->name}}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Designation</label>
-                                    <textarea class="form-control" rows="3" placeholder="designation ..." name="designation">{{$reviews->designation}}</textarea>
+                                    <label for="exampleInputTitle">Designation</label>
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="designation" value="{{$reviews->designation}}" required>
                                 </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="3" placeholder="designation ..." name="description" required>{{$reviews->description}}</textarea>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
                                     <div class="input-group">

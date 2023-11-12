@@ -111,7 +111,7 @@
     color: var(--bs-white);
     font-size: 18px;
     outline: none;
-    
+
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -262,7 +262,7 @@
     .carousel-item {
         min-height: 500px;
     }
-    
+
     .carousel-item img {
         min-height: 500px;
         object-fit: cover;
@@ -281,7 +281,7 @@
     .carousel-item {
         min-height: 400px;
     }
-    
+
     .carousel-item img {
         min-height: 400px;
         object-fit: cover;
@@ -367,7 +367,9 @@
 .services-item:hover .services-content-icon p {
     color: var(--bs-white);
 }
-
+.service-image{
+    height: 7rem;
+}
 /*** Services End ***/
 
 
@@ -454,7 +456,7 @@
     position: absolute;
     top: 6px;
     left: -140px;
-    
+
 }
 
 .blog-btn-icon:hover .blog-icon-2 {

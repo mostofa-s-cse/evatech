@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="">Title</label><span style="font-weight: bold; color: red"> *</span>
-                                        <input name="title" id="" class="form-control tinymce-editor" cols="30" rows="10" value="@if($abouts) {!! $abouts->title !!}  @endif">
+                                        <textarea name="title" id="" class="form-control tinymce-editor" cols="30" rows="10">@if($abouts) {!! $abouts->title !!}  @endif</textarea>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="">About Us Description</label><span style="font-weight: bold; color: red"> *</span>
@@ -49,10 +49,11 @@
                                     <div class="form-group col-md-12">
                                         <label for="">About Us Image</label><span style="font-weight: bold; color: red"> *</span>
                                         <input name="image" type="file" class="form-control">
-                                        <input type="hidden" name="old_image" id="" value="{{$abouts->image}}">
-
+                                        <input type="hidden" name="old_image" id="" value="@if($abouts) {{$abouts->image}}@endif">
+                                        @if($abouts)
                                         @if ($abouts->image)
                                             <img src="{{ asset($abouts->image) }}" alt="" class="img-fluid rounded img-thumbnail mt-2" style="width: 50%; height: 300px">
+                                        @endif
                                         @endif
                                     </div>
                                     <div class="form-group col-md-12">
