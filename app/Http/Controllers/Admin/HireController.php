@@ -31,11 +31,8 @@ class HireController extends Controller
                                    <img class="image" style="width:60px; height: 40px" src="' . asset($data->image) . '"/>
                                 </a>';
                     })
-                    ->addColumn('title', function ($data) {
-                        return $data->title;
-                    })
-                    ->addColumn('sub_title', function ($data) {
-                        return $data->sub_title;
+                    ->addColumn('name', function ($data) {
+                        return $data->name;
                     })
                     ->addColumn('status', function ($data) {
                         if ($data->status == 1) {
@@ -66,7 +63,7 @@ class HireController extends Controller
                                     </a>
                                 </div>';
                     })
-                    ->rawColumns(['image','title', 'sub_title', 'status', 'action'])
+                    ->rawColumns(['image','name', 'status', 'action'])
                     ->make(true);
             }
             return view('back-end.pages.hire.index');
@@ -92,8 +89,7 @@ class HireController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'sub_title' => 'required',
+            'name' => 'required',
             'image' => 'required|image',
         ]);
 
@@ -107,8 +103,7 @@ class HireController extends Controller
             }
 
             DB::table('hires')->insert([
-                'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'name' => $request->name,
                 'image' => $image_url,
                 'status' => 0,
                 'created_at' => Carbon::now(),
@@ -143,8 +138,7 @@ class HireController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'sub_title' => 'required',
+            'name' => 'required',
             'image' => 'required|image'
         ]);
 
@@ -163,15 +157,9 @@ class HireController extends Controller
                 $imageName = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('uploads-image/hires'), $imageName);
                 $image_url = 'uploads-image/hires/' . $imageName;
-
-                // If a new image is uploaded, you may want to delete the old image here
-                // To do so, you can use the File facade or Storage for more robust handling
             }
-
-            // Update the slider record
             DB::table('hires')->where('id', $id)->update([
-                'title' => $request->title,
-                'sub_title' => $request->sub_title,
+                'name' => $request->name,
                 'image' => $image_url,
                 // You can update other fields as needed
             ]);

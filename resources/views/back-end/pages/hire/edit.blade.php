@@ -31,11 +31,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Title</label>
-                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" value="{{$hires->title}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputSubtitle">Sub Title</label>
-                                    <input type="text" class="form-control" id="exampleInputSubtitle" name="sub_title" value="{{$hires->sub_title}}">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="name" value="{{$hires->name}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
