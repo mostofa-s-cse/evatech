@@ -38,7 +38,7 @@
                         <div class="container carousel-content">
                             <h6 class="text-secondary h4 animated fadeInUp">{{ $item->top_title }}</h6>
                             <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $item->title }}</h1>
-                            <a href="{{ route('abouts') }}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
+                            <a href="{{ route('abouts') }}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 mb-2 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
                             <a href="{{ route('contact') }}" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 <!-- Fact End -->
 
 <!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
+<div class="container-fluid services py-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
             <h5 class="text-primary">Our Services</h5>
@@ -118,7 +118,7 @@
 </div>
 <!-- Services End -->
 <!-- About Start -->
-<div class="container-fluid py-5 my-5">
+<div class="container-fluid py-5">
     <div class="container pt-5">
         <div class="row g-5">
             <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
@@ -129,7 +129,10 @@
             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
                 <h5 class="text-primary">About Us</h5>
                 <h1 class="mb-4">@if($about) {!! $about->title !!} @endif</h1>
-               <p>@if($about) {!! $about->description !!}@endif</p>
+                @php
+                    $description = ($about) ? substr($about->description, 0, 350) : null;
+                @endphp
+               <p>@if($about) {!! $description !!}@endif ...</p>
                 <a href="{{ route('abouts') }}" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>
             </div>
         </div>
@@ -139,7 +142,7 @@
 
 
 <!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
+<div class="container-fluid services py-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
 {{--            <h5 class="text-primary">Our Services</h5>--}}
@@ -147,7 +150,7 @@
         </div>
         <div class="row g-5 services-inner">
             @foreach($hires as $key => $item)
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
                     <div class="services-item bg-light">
                         <div class="p-4 text-center services-content">
                             <div class="services-content-icon">
