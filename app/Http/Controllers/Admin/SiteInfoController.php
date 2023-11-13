@@ -29,6 +29,7 @@ class SiteInfoController extends Controller
             'email'=> 'required',
             'phone'=> 'required',
             'address' => 'required',
+            'image'=>'required',
         ], []);
         try {
 
@@ -40,13 +41,19 @@ class SiteInfoController extends Controller
             } else {
                 $value = 'insert';
             }
-
+            $image_url = $request->old_image;
+            if ($request->hasFile('image')) {
+                $imageName = time() . '.' . $request->image->extension();
+                $request->image->move(public_path('uploads-image/site-image'), $imageName);
+                $image_url = 'uploads-image/site-image/' . $imageName;
+            }
             DB::table('site_infos')->$value([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'phone'=>$request->phone,
                 'address'=>$request->address,
+                'image'=>$image_url,
                 'created_at' => Carbon::now(),
             ]);
 

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('image');
             $table->longText('mission');
             $table->longText('vision');
+            $table->longText('experience')->nullable();
+            $table->string('experience_image')->nullable();
             $table->timestamps();
         });
     }

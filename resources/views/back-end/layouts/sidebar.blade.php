@@ -47,14 +47,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("site-info.index")}}" class="nav-link" id="side-siteinfo">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Site Info
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{route("slider.index")}}" class="nav-link" id="side-slider">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
@@ -132,6 +124,29 @@
                             Contact
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="side-settings">
+                        <i class="nav-icon fa fa-cog"></i>
+                        <p>
+                           Site Settings
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route("site-info.index")}}" class="nav-link" id="side-general">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>General</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('social-link.index')}}" class="nav-link" id="side-sosial">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Social Media Link</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>

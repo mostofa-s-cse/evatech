@@ -1,7 +1,5 @@
 @php
     $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
-@endphp
-@php
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
 @endphp
 <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">

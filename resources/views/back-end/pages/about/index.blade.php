@@ -65,6 +65,20 @@
                                         <textarea name="vision" id="" class="form-control tinymce-editor" cols="30" rows="10">@if($abouts) {!!$abouts->vision!!} @endif</textarea>
                                     </div>
                                     <div class="form-group col-md-12">
+                                        <label for="">About Us Experience</label><span style="font-weight: bold; color: red"> *</span>
+                                        <textarea name="experience" id="" class="form-control tinymce-editor" cols="30" rows="10">@if($abouts) {!!$abouts->experience!!} @endif</textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="">About Us Experience Image</label><span style="font-weight: bold; color: red"> *</span>
+                                        <input name="experience_image" type="file" class="form-control">
+                                        <input type="hidden" name="old_image2" id="" value="@if($abouts) {{$abouts->experience_image}} @endif">
+                                        @if($abouts)
+                                            @if ($abouts->experience_image)
+                                                <img src="{{ asset($abouts->experience_image) }}" alt="" class="img-fluid rounded img-thumbnail mt-2" style="width: 50%; height: 300px">
+                                            @endif
+                                        @endif
+                                    </div>
+                                    <div class="form-group col-md-12">
                                         <button onclick="confirm(`Are You Sure ?`)"
                                                 class="btn btn-sm btn-primary">SAVE
                                         </button>

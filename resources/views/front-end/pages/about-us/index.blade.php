@@ -1,11 +1,12 @@
 @php
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
 @endphp
 @extends('front-end.layouts.master')
 @section('title','About Us')
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5" @if($site_info) style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset($site_info->image)}}) center center no-repeat;"@endif>
         <div class="container text-center py-5">
             <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
@@ -67,12 +68,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
                     <h2>Experience</h2>
                     <p>@if($about)
-                            {!! $about->mission !!}
+                            {!! $about->experience !!}
                         @endif</p>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
                     <div class="h-100">
-                        <img src="@if($about) {{ asset($about->image) }} @endif" class="img-fluid rounded" alt="">
+                        <img src="@if($about) {{ asset($about->experience_image) }} @endif" class="img-fluid rounded" alt="">
                     </div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
             <div class="row py-5">
                 <div class="col-sm-6">
                     <div class="h-100 mb-3">
-                        <img src="@if($about) {{ asset($about->image) }} @endif" class="img-fluid rounded" alt="">
+                        <img src="{{asset('frontend/img/whyus.png')}}" class="img-fluid rounded" alt="">
                     </div>
                 </div>
                 <div class="col-sm-6 my-auto"><p class="h1 text-center"

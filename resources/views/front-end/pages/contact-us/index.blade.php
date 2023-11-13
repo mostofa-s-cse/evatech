@@ -1,8 +1,11 @@
+@php
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
+@endphp
 @extends('front-end.layouts.master')
 @section('title','Contact Us')
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5" @if($site_info) style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset($site_info->image)}}) center center no-repeat;"@endif>
         <div class="container text-center py-5">
             <h1 class="display-2 text-white mb-4 animated slideInDown">Contact Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
