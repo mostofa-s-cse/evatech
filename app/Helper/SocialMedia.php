@@ -5,27 +5,27 @@ class SocialMedia{
         return [
             [
                 'name' => 'Facebook',
-                'icon' => 'fa fa-facebook',
+                'icon' => 'fab fa-facebook-f',
                 'color' => '#39569E',
             ],
             [
                 'name' => 'Youtube',
-                'icon' => 'fa fa-youtube',
+                'icon' => 'fab fa-youtube',
                 'color' => '#DC472E'
             ],
             [
                 'name' => 'Twitter',
-                'icon' => 'fa fa-twitter',
+                'icon' => 'fab fa-twitter',
                 'color' => '#52AAF4'
             ],
             [
                 'name' => 'Instagram',
-                'icon' => 'fa fa-instagram',
+                'icon' => 'fab fa-instagram',
                 'color' => '#C8359D'
             ],
             [
                 'name' => 'LinkedIn',
-                'icon' => 'fa fa-linkedin',
+                'icon' => 'fab fa-linkedin-in',
                 'color' => '#0185AE'
             ]
         ];

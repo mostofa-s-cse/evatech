@@ -3,7 +3,7 @@
 @endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route("dashboard")}}" class="brand-link">
         <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">EvaTech</span>
     </a>
@@ -55,15 +55,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("project.index")}}" class="nav-link" id="side-project">
-                        <i class="nav-icon fas fa-copy"></i>
+                    <a href="{{route("counter.index")}}" class="nav-link" id="side-counter">
+                        <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Project Add
+                            Counter
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route("provide.index")}}" class="nav-link" id="side-provide">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Provide
                             {{-- <i class="fas fa-angle-left right"></i> --}}
-
                         </p>
                     </a>
 
+                </li>
                 <li class="nav-item">
                     <a href="{{route("hire.index")}}" class="nav-link" id="side-hire">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -78,15 +86,17 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("provide.index")}}" class="nav-link" id="side-provide">
-                        <i class="nav-icon fas fa-tree"></i>
+                    <a href="{{route("project.index")}}" class="nav-link" id="side-project">
+                        <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Provide
+                            Project
                             {{-- <i class="fas fa-angle-left right"></i> --}}
+
                         </p>
                     </a>
 
-                </li>
+
+
                 <li class="nav-item">
                     <a href="{{route("customer.index")}}" class="nav-link" id="side-customer">
                         <i class="nav-icon fas fa-edit"></i>
@@ -96,6 +106,15 @@
                         </p>
                     </a>
 
+                </li>
+                <li class="nav-item">
+                    <a href="{{route("review.index")}}" class="nav-link" id="side-review">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Review
+                            {{-- <span class="badge badge-info right">2</span> --}}
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route("about.index")}}" class="nav-link" id="side-about">
@@ -108,15 +127,7 @@
 
                 </li>
                 {{-- <li class="nav-header">EXAMPLES</li> --}}
-                <li class="nav-item">
-                    <a href="{{route("review.index")}}" class="nav-link" id="side-review">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Review
-                            {{-- <span class="badge badge-info right">2</span> --}}
-                        </p>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a href="{{route("contact.index")}}" class="nav-link" id="side-contact">
                         <i class="nav-icon far fa-image"></i>

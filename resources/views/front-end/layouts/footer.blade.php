@@ -1,12 +1,13 @@
 @php
     $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
+    $social_link = \Illuminate\Support\Facades\DB::table('social_links')->get();
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
 @endphp
 <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
     <div class="container pt-5 pb-4">
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
-                <a href="index.html">
+                <a href="#">
                     <h1 class="text-white fw-bold d-block">@if($site_info) {{$site_info->first_name}}<span class="text-secondary">{{$site_info->last_name}}</span>  @endif  </h1>
                 </a>
 
@@ -15,10 +16,9 @@
                 @endphp
                 <p class="mt-4 text-light">{!! $description !!}... <a href="{{ route('abouts') }}">More details</a></p>
                 <div class="d-flex hightech-link">
-                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
-                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>
-                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-instagram text-primary"></i></a>
-                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                    @foreach($social_link as $item)
+                    <a href="{{$item->link}}" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="{{$item->icon}} text-primary"></i></a>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

@@ -2,6 +2,7 @@
     $slider = \Illuminate\Support\Facades\DB::table('sliders')
     ->where('status',1)
     ->get();
+    $counter = \Illuminate\Support\Facades\DB::table('counters')->get();
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
     $provides = \Illuminate\Support\Facades\DB::table('provides')
     ->where('status',1)
@@ -62,30 +63,14 @@
 <div class="container-fluid bg-secondary py-5">
     <div class="container">
         <div class="row">
+            @foreach($counter as $item)
             <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
                 <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">99</h1>
-                    <h5 class="text-white mt-1">Success in getting happy customer</h5>
+                    <h1 class="me-3 text-primary counter-value">{{$item->number}}</h1>
+                    <h5 class="text-white mt-1">{{$item->title}}</h5>
                 </div>
             </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".3s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">25</h1>
-                    <h5 class="text-white mt-1">Thousands of successful business</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".5s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">120</h1>
-                    <h5 class="text-white mt-1">Total clients who love HighTech</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".7s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">5</h1>
-                    <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -106,8 +91,11 @@
                             <div class="services-content-icon">
                                 <img class="mb-4 img-fluid service-image" src="{{ asset($item->image) }}" alt="">
                                 <h4 class="mb-3">{{ $item->title }}</h4>
-                                <p class="mb-4">{{$item->description}}</p>
-                                <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                                @php
+                                    $description_provides = substr($item->description, 0, 100);
+                                @endphp
+                                <p class="mb-4">{{ $description_provides}}</p>
+                                <a href="{{ route('services') }}" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 @php
     $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
+    $social_link = \Illuminate\Support\Facades\DB::table('social_links')->get();
 @endphp
 <div class="container-fluid bg-dark py-2 d-none d-md-flex">
     <div class="container">
@@ -10,10 +11,9 @@
             </div>
             <div id="note" class="text-secondary d-none d-xl-flex"><small>Note : We help you to Grow your Business</small></div>
             <div class="top-link">
-                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
-                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-twitter text-primary"></i></a>
-                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
-                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                @foreach($social_link as $item)
+                    <a href="{{$item->link}}" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="{{$item->icon}} text-primary"></i></a>
+                @endforeach
             </div>
         </div>
     </div>
