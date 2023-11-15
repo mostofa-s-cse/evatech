@@ -14,6 +14,14 @@
     </div>
 @endsection
 @section('content')
+<style>
+    .tox-notifications-container{
+        display: none; !important;
+    }
+    .tox .tox-statusbar__text-container {
+        display: none;
+    }
+</style>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -35,13 +43,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="description ..." name="description">{{$projects->description}}</textarea>
+                                    <textarea class="form-control tinymce-editor" name="description">{{$projects->description}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image" value="{{$projects->image}}">
+                                            <input name="image" type="file" class="form-control">
+                                            <input type="hidden" name="old_image" id="" value="{{$projects->image}}">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
@@ -71,4 +80,11 @@
         });
 
     </script>
+      <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+      <script>
+          tinymce.init({
+              selector: '.tinymce-editor',
+              height: 300,
+          });
+        </script>
 @endsection

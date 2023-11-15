@@ -6,7 +6,7 @@
     <div class="container">
         <div class="d-flex justify-content-between topbar">
             <div class="top-info">
-                <small class="me-3 text-white-50"><a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>@if($site_info) {{$site_info->address}} @endif</small>
+                <small class="me-3 text-white-50"><a href="#"><i class="fas fa-phone me-2 text-secondary"></i></a>@if($site_info) {{$site_info->phone}} @endif</small>
                 <small class="me-3 text-white-50"><a href="#"><i class="fas fa-envelope me-2 text-secondary"></i></a>@if($site_info) {{$site_info->email}} @endif</small>
             </div>
             <div id="note" class="text-secondary d-none d-xl-flex"><small>Note : We help you to Grow your Business</small></div>

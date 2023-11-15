@@ -45,7 +45,6 @@
             <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
                 <h5 class="text-primary">Get In Touch</h5>
                 <h1 class="mb-3">Contact for any query</h1>
-                <p class="mb-2">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
             </div>
             <div class="contact-detail position-relative p-5">
                 <div class="row g-5 mb-5 justify-content-center">
@@ -75,8 +74,7 @@
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
                         <div class="p-5 h-100 rounded contact-map">
-                            <iframe class="rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.4710403339755!2d-73.82241512404069!3d40.685622471397615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c26749046ee14f%3A0xea672968476d962c!2s123rd%20St%2C%20Queens%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1686493221834!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                            <iframe class="rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.7147025238046!2d90.39493017619598!3d23.864262578592946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5a25b501af1%3A0x9182249dac6b5f87!2sUttara%203%20Number%20Sector!5e0!3m2!1sen!2sbd!4v1700040304700!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
                         <form action="{{route('contact_store')}}" method="post">

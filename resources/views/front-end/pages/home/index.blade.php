@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-                <h5 class="text-primary">@if($site_info) {{$site_info->provide_top_title}} @endif</h5>
+                <h5 class="text-primary">@if($site_info) {{$site_info->about_top_title}} @endif</h5>
                 <h1 class="mb-4">@if($about) {!! $about->title !!} @endif</h1>
                 @php
                     $description = ($about) ? substr($about->description, 0, 350) : null;
@@ -221,17 +221,20 @@
         <div class="row g-5">
             @foreach($projects as $key => $item)
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
+                
                 <div class="project-item">
                     <div class="project-img">
                         <img src="{{ asset($item->image) }}" class="img-fluid w-100 rounded" alt="">
+                        
                         <div class="project-content">
-                            <a href="#" class="text-center">
+                            <a href="{{route('single_project',$item->id)}}" class="text-center">
                                 <h4 class="text-secondary">{{$item->title}}</h4>
-                                <p class="m-0 text-white">More details</p>
+                                <p class="m-0 text-white btn btn-primary">more details</p>
                             </a>
                         </div>
                     </div>
                 </div>
+                <a href="{{route('single_project',$item->id)}}"> <h5 class="text-center mt-2 text-secondary">{{$item->title}}</h5></a>
             </div>
             @endforeach
         </div>
@@ -440,7 +443,7 @@
 <div class="container-fluid testimonial py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Customer @if($site_info) {{$site_info->customer_top_title}} @endif</h5>
+            <h5 class="text-primary">@if($site_info) {{$site_info->customer_top_title}} @endif</h5>
             <h1>@if($site_info) {{$site_info->customer_title}} @endif</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
@@ -457,13 +460,15 @@
             @foreach($reviews as $item)
                 <div class="testimonial-item2 m-2 text-center">
                     <div class="">
-                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px; height: 50px" class="mx-auto mb-1">
+                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px; height: 50px" class="mx-auto mb-2">
                     </div>
                     <div class="ms-4">
                         <h4 class="text-secondary">{{$item->name}}</h4>
+                        
                         <p class="m-0 pb-3">{{$item->designation}}</p>
                     </div>
                     <div class="px-2">
+                        <h5 class="">{{$item->title}}</h5>
                         <p class="mb-0">{{$item->description}}</p>
                     </div>
                 </div>

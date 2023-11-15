@@ -45,8 +45,8 @@
     <div class="container-fluid services py-5">
         <div class="container">
             <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                <h5 class="text-primary">Our Services</h5>
-                <h1>Services Built Specifically For Your Business</h1>
+                <h5 class="text-primary">@if($site_info) {{$site_info->provide_top_title}} @endif</h5>
+                <h1>@if($site_info) {{$site_info->provide_title}} @endif</h1>
             </div>
             <div class="row g-5 services-inner">
                 @foreach($provides as $key => $item)

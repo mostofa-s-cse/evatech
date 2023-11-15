@@ -46,8 +46,8 @@
     <div class="container-fluid project py-5 mb-5">
         <div class="container">
             <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                <h5 class="text-primary">Our Project</h5>
-                <h1>Our Recently Completed Projects</h1>
+                <h5 class="text-primary">@if($site_info) {{$site_info->project_top_title}} @endif</h5>
+                <h1>@if($site_info) {{$site_info->project_title}} @endif</h1>
             </div>
             <div class="row g-5">
                 @foreach($projects as $key => $item)
@@ -56,13 +56,15 @@
                             <div class="project-img">
                                 <img src="{{ asset($item->image) }}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
-                                    <a href="#" class="text-center">
+                                        <a href="{{route('single_project',$item->id)}}" class="text-center">
                                         <h4 class="text-secondary">{{$item->title}}</h4>
-                                        <p class="m-0 text-white">More details</p>
+                                       
+                                        <p class="btn btn-primary">more details</p>
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        <a href="{{route('single_project',$item->id)}}"> <h5 class="text-center mt-2 text-secondary">{{$item->title}}</h5></a>
                     </div>
                 @endforeach
             </div>

@@ -132,7 +132,7 @@
 
                                 <div class="form-group px-4">
                                     <label for="exampleInputTitle">Hire Us</label>
-                                    <input type="email" class="form-control" id="exampleInputTitle" name="hire" required value="@if($site_infos) {{ $site_infos->hire }}  @endif">
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="hire" required value="@if($site_infos) {{ $site_infos->hire }}  @endif">
                                 </div>
 
 

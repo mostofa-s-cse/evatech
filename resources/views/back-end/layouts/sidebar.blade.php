@@ -72,6 +72,18 @@
                     </a>
 
                 </li>
+                
+                <li class="nav-item">
+                    <a href="{{route("about.index")}}" class="nav-link" id="side-about">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            About
+                            {{-- <i class="fas fa-angle-left right"></i> --}}
+                        </p>
+                    </a>
+
+                </li>
+
                 <li class="nav-item">
                     <a href="{{route("hire.index")}}" class="nav-link" id="side-hire">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -115,16 +127,6 @@
                             {{-- <span class="badge badge-info right">2</span> --}}
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route("about.index")}}" class="nav-link" id="side-about">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            About
-                            {{-- <i class="fas fa-angle-left right"></i> --}}
-                        </p>
-                    </a>
-
                 </li>
                 {{-- <li class="nav-header">EXAMPLES</li> --}}
 
