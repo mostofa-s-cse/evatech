@@ -49,17 +49,6 @@
             </div>
             <div class="contact-detail position-relative p-5">
                 <div class="row g-5 mb-5 justify-content-center">
-                    <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".3s">
-                        <div class="d-flex bg-light p-3 rounded">
-                            <div class="flex-shrink-0 btn-square bg-secondary rounded-circle" style="width: 64px; height: 64px;">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <div class="ms-3">
-                                <h4 class="text-primary">Address</h4>
-                                <a href="https://goo.gl/maps/Zd4BCynmTb98ivUJ6" target="_blank" class="h5">23 rank Str, NY</a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".5s">
                         <div class="d-flex bg-light p-3 rounded">
                             <div class="flex-shrink-0 btn-square bg-secondary rounded-circle" style="width: 64px; height: 64px;">
@@ -67,7 +56,7 @@
                             </div>
                             <div class="ms-3">
                                 <h4 class="text-primary">Call Us</h4>
-                                <a class="h5" href="tel:+0123456789" target="_blank">+012 3456 7890</a>
+                                <a class="h5" href="tel:+0123456789" target="_blank">@if($site_info) {{$site_info->phone}} @endif</a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +67,7 @@
                             </div>
                             <div class="ms-3">
                                 <h4 class="text-primary">Email Us</h4>
-                                <a class="h5" href="mailto:info@example.com" target="_blank">info@example.com</a>
+                                <a class="h5" href="mailto:info@example.com" target="_blank">@if($site_info) {{$site_info->email}} @endif</a>
                             </div>
                         </div>
                     </div>
@@ -90,23 +79,30 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
+                        <form action="{{route('contact_store')}}" method="post">
+                            @csrf
+                            @method('POST')
                         <div class="p-5 rounded contact-form">
                             <div class="mb-4">
-                                <input type="text" class="form-control border-0 py-3" placeholder="Your Name">
+                                <input type="text" name="name" class="form-control border-0 py-3" placeholder="Your Name" required>
                             </div>
                             <div class="mb-4">
-                                <input type="email" class="form-control border-0 py-3" placeholder="Your Email">
+                                <input type="text"name="phone" class="form-control border-0 py-3" placeholder="Your Phone Number" required>
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control border-0 py-3" placeholder="Project">
+                                <input type="email"name="email" class="form-control border-0 py-3" placeholder="Your Email" required>
                             </div>
                             <div class="mb-4">
-                                <textarea class="w-100 form-control border-0 py-3" rows="6" cols="10" placeholder="Message"></textarea>
+                                <input type="text" name="subject"  class="form-control border-0 py-3" placeholder="Subject" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea name="message" class="w-100 form-control border-0 py-3" rows="6" cols="10" placeholder="Message" required></textarea>
                             </div>
                             <div class="text-start">
-                                <button class="btn bg-primary text-white py-3 px-5" type="button">Send Message</button>
+                                <button class="btn bg-primary text-white py-3 px-5" type="submit">Send Message</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

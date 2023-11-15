@@ -29,6 +29,7 @@
                                 <tr class="" style="text-align:center; ">
                                     <th style="width: 7%">SL</th>
                                     <th style="width: 15%">Name</th>
+                                    <th style="width: 15%">Phone</th>
                                     <th style="width: 8%">Email</th>
                                     <th style="width: 8%">Subject</th>
                                     <th style="width: 8%">Message</th>
@@ -81,6 +82,7 @@
             columns: [
                 {data: "DT_RowIndex", name: "DT_RowIndex", orderable: false,},
                 {data: 'name', name: 'name', orderable: true,},
+                {data: 'phone', name: 'phone', orderable: true,},
                 {data: 'email', name: 'email', orderable: true},
                 {data: 'subject', name: 'subject', orderable: true},
                 {data: 'message', name: 'message', orderable: true},
