@@ -19,7 +19,7 @@
     $hires = \Illuminate\Support\Facades\DB::table('hires')
     ->where('status',1)
     ->get();
-
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
 @endphp
 @extends('front-end.layouts.master')
 @section('title','Home')
@@ -80,8 +80,8 @@
 <div class="container-fluid services py-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Services</h5>
-            <h1>Services Built Specifically For Your Business</h1>
+            <h5 class="text-primary">@if($site_info) {{$site_info->provide_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->provide_title}} @endif</h1>
         </div>
         <div class="row g-5 services-inner">
             @foreach($provides as $key => $item)
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-                <h5 class="text-primary">About Us</h5>
+                <h5 class="text-primary">@if($site_info) {{$site_info->provide_top_title}} @endif</h5>
                 <h1 class="mb-4">@if($about) {!! $about->title !!} @endif</h1>
                 @php
                     $description = ($about) ? substr($about->description, 0, 350) : null;
@@ -134,7 +134,7 @@
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
 {{--            <h5 class="text-primary">Our Services</h5>--}}
-            <h1>Why You Should Hire Us?</h1>
+            <h1>@if($site_info) {{$site_info->hire}} @endif</h1>
         </div>
         <div class="row g-5 services-inner">
             @foreach($hires as $key => $item)
@@ -215,8 +215,8 @@
 <div class="container-fluid project py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Project</h5>
-            <h1>Our Recently Completed Projects</h1>
+            <h5 class="text-primary">@if($site_info) {{$site_info->project_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->provide_title}} @endif</h1>
         </div>
         <div class="row g-5">
             @foreach($projects as $key => $item)
@@ -440,8 +440,8 @@
 <div class="container-fluid testimonial py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Customer</h5>
-            <h1>Our Customers Saying!</h1>
+            <h5 class="text-primary">Our Customer @if($site_info) {{$site_info->customer_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->customer_title}} @endif</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
             @foreach($customers as $item)

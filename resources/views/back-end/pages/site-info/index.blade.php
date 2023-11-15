@@ -67,73 +67,73 @@
                                 @endif
                             </div>
 
-{{--                            <u><h4 class="text-center mb-3 underline">Create Home Section Name</h4></u>--}}
+                            <u><h4 class="text-center mb-3 underline">Create Home Section Name</h4></u>
 
-{{--                            <div class="row px-4">--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <label for="exampleInputTitle">Service/Provide Top title</label>--}}
-{{--                                        <input type="text" class="form-control" id="exampleInputTitle" name="first_name" required value="@if($site_infos) {{ $site_infos->first_name }}  @endif">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <label for="exampleInputTitle">Service/Provide title</label>--}}
-{{--                                        <input type="text" class="form-control" id="exampleInputTitle" name="last_name" required value="@if($site_infos) {{ $site_infos->last_name }}  @endif">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                                <div class="row px-4">--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">About Us Top title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="first_name" required value="@if($site_infos) {{ $site_infos->first_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">About Us title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="last_name" required value="@if($site_infos) {{ $site_infos->last_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                            <div class="row px-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputTitle">Service/Provide Top title</label>
+                                        <input type="text" class="form-control" id="exampleInputTitle" name="provide_top_title" required value="@if($site_infos) {{ $site_infos->provide_top_title }}  @endif">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputTitle">Service/Provide title</label>
+                                        <input type="text" class="form-control" id="exampleInputTitle" name="provide_title" required value="@if($site_infos) {{ $site_infos->provide_title }}  @endif">
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">About Us Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="about_top_title" required value="@if($site_infos) {{ $site_infos->about_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">About Us title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="about_title" required value="@if($site_infos) {{ $site_infos->about_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
 
-{{--                                <div class="row px-4">--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">Project Top title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="first_name" required value="@if($site_infos) {{ $site_infos->first_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">Project Us title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="last_name" required value="@if($site_infos) {{ $site_infos->last_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-
-{{--                                <div class="row px-4">--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">Customer Top title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="first_name" required value="@if($site_infos) {{ $site_infos->first_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputTitle">Customer title</label>--}}
-{{--                                            <input type="text" class="form-control" id="exampleInputTitle" name="last_name" required value="@if($site_infos) {{ $site_infos->last_name }}  @endif">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Project Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="project_top_title" required value="@if($site_infos) {{ $site_infos->project_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Project Us title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="project_title" required value="@if($site_infos) {{ $site_infos->project_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
 
 
-{{--                                <div class="form-group px-4">--}}
-{{--                                    <label for="exampleInputTitle">Hire Us</label>--}}
-{{--                                    <input type="email" class="form-control" id="exampleInputTitle" name="email" required value="@if($site_infos) {{ $site_infos->email }}  @endif">--}}
-{{--                                </div>--}}
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Customer Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="customer_top_title" required value="@if($site_infos) {{ $site_infos->customer_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Customer title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="customer_title" required value="@if($site_infos) {{ $site_infos->customer_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group px-4">
+                                    <label for="exampleInputTitle">Hire Us</label>
+                                    <input type="email" class="form-control" id="exampleInputTitle" name="hire" required value="@if($site_infos) {{ $site_infos->hire }}  @endif">
+                                </div>
 
 
                             <!-- /.card-body -->
