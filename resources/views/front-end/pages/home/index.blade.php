@@ -2,6 +2,7 @@
     $slider = \Illuminate\Support\Facades\DB::table('sliders')
     ->where('status',1)
     ->get();
+    $counter = \Illuminate\Support\Facades\DB::table('counters')->get();
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
     $provides = \Illuminate\Support\Facades\DB::table('provides')
     ->where('status',1)
@@ -18,7 +19,7 @@
     $hires = \Illuminate\Support\Facades\DB::table('hires')
     ->where('status',1)
     ->get();
-
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
 @endphp
 @extends('front-end.layouts.master')
 @section('title','Home')
@@ -38,7 +39,7 @@
                         <div class="container carousel-content">
                             <h6 class="text-secondary h4 animated fadeInUp">{{ $item->top_title }}</h6>
                             <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $item->title }}</h1>
-                            <a href="{{ route('abouts') }}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
+                            <a href="{{ route('abouts') }}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 mb-2 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
                             <a href="{{ route('contact') }}" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
                         </div>
                     </div>
@@ -62,41 +63,25 @@
 <div class="container-fluid bg-secondary py-5">
     <div class="container">
         <div class="row">
+            @foreach($counter as $item)
             <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
                 <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">99</h1>
-                    <h5 class="text-white mt-1">Success in getting happy customer</h5>
+                    <h1 class="me-3 text-primary counter-value">{{$item->number}}</h1>
+                    <h5 class="text-white mt-1">{{$item->title}}</h5>
                 </div>
             </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".3s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">25</h1>
-                    <h5 class="text-white mt-1">Thousands of successful business</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".5s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">120</h1>
-                    <h5 class="text-white mt-1">Total clients who love HighTech</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 wow fadeIn" data-wow-delay=".7s">
-                <div class="d-flex counter">
-                    <h1 class="me-3 text-primary counter-value">5</h1>
-                    <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
 <!-- Fact End -->
 
 <!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
+<div class="container-fluid services py-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Services</h5>
-            <h1>Services Built Specifically For Your Business</h1>
+            <h5 class="text-primary">@if($site_info) {{$site_info->provide_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->provide_title}} @endif</h1>
         </div>
         <div class="row g-5 services-inner">
             @foreach($provides as $key => $item)
@@ -106,8 +91,11 @@
                             <div class="services-content-icon">
                                 <img class="mb-4 img-fluid service-image" src="{{ asset($item->image) }}" alt="">
                                 <h4 class="mb-3">{{ $item->title }}</h4>
-                                <p class="mb-4">{{$item->description}}</p>
-                                <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                                @php
+                                    $description_provides = substr($item->description, 0, 100);
+                                @endphp
+                                <p class="mb-4">{{ $description_provides}}</p>
+                                <a href="{{ route('services') }}" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -118,7 +106,7 @@
 </div>
 <!-- Services End -->
 <!-- About Start -->
-<div class="container-fluid py-5 my-5">
+<div class="container-fluid py-5">
     <div class="container pt-5">
         <div class="row g-5">
             <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
@@ -127,9 +115,12 @@
                 </div>
             </div>
             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-                <h5 class="text-primary">About Us</h5>
+                <h5 class="text-primary">@if($site_info) {{$site_info->about_top_title}} @endif</h5>
                 <h1 class="mb-4">@if($about) {!! $about->title !!} @endif</h1>
-               <p>@if($about) {!! $about->description !!}@endif</p>
+                @php
+                    $description = ($about) ? substr($about->description, 0, 350) : null;
+                @endphp
+               <p>@if($about) {!! $description !!}@endif ...</p>
                 <a href="{{ route('abouts') }}" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>
             </div>
         </div>
@@ -139,15 +130,15 @@
 
 
 <!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
+<div class="container-fluid services py-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
 {{--            <h5 class="text-primary">Our Services</h5>--}}
-            <h1>Why You Should Hire Us?</h1>
+            <h1>@if($site_info) {{$site_info->hire}} @endif</h1>
         </div>
         <div class="row g-5 services-inner">
             @foreach($hires as $key => $item)
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
                     <div class="services-item bg-light">
                         <div class="p-4 text-center services-content">
                             <div class="services-content-icon">
@@ -224,23 +215,26 @@
 <div class="container-fluid project py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Project</h5>
-            <h1>Our Recently Completed Projects</h1>
+            <h5 class="text-primary">@if($site_info) {{$site_info->project_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->provide_title}} @endif</h1>
         </div>
         <div class="row g-5">
             @foreach($projects as $key => $item)
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="{{ $key === 0 ? '.3s' : '.' . (.5 + $key/10) . 's' }}">
+                
                 <div class="project-item">
                     <div class="project-img">
                         <img src="{{ asset($item->image) }}" class="img-fluid w-100 rounded" alt="">
+                        
                         <div class="project-content">
-                            <a href="#" class="text-center">
+                            <a href="{{route('single_project',$item->id)}}" class="text-center">
                                 <h4 class="text-secondary">{{$item->title}}</h4>
-                                <p class="m-0 text-white">More details</p>
+                                <p class="m-0 text-white btn btn-primary">more details</p>
                             </a>
                         </div>
                     </div>
                 </div>
+                <a href="{{route('single_project',$item->id)}}"> <h5 class="text-center mt-2 text-secondary">{{$item->title}}</h5></a>
             </div>
             @endforeach
         </div>
@@ -449,8 +443,8 @@
 <div class="container-fluid testimonial py-5 mb-5">
     <div class="container">
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Customer</h5>
-            <h1>Our Customers Saying!</h1>
+            <h5 class="text-primary">@if($site_info) {{$site_info->customer_top_title}} @endif</h5>
+            <h1>@if($site_info) {{$site_info->customer_title}} @endif</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
             @foreach($customers as $item)
@@ -466,13 +460,15 @@
             @foreach($reviews as $item)
                 <div class="testimonial-item2 m-2 text-center">
                     <div class="">
-                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px; height: 50px" class="mx-auto mb-1">
+                        <img src="{{ asset($item->image) }}" alt="" style="width: 50px; height: 50px" class="mx-auto mb-2">
                     </div>
                     <div class="ms-4">
                         <h4 class="text-secondary">{{$item->name}}</h4>
+                        
                         <p class="m-0 pb-3">{{$item->designation}}</p>
                     </div>
                     <div class="px-2">
+                        <h5 class="">{{$item->title}}</h5>
                         <p class="mb-0">{{$item->description}}</p>
                     </div>
                 </div>

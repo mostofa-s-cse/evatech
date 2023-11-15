@@ -26,46 +26,48 @@ class AboutController extends Controller
 //        dd($request);
         $request->validate([
             'title' => 'required',
-            'description'=> 'required',
+            'description' => 'required',
             'mission' => 'required',
-            'vision' => 'required'
-        ], []);
+            'vision' => 'required',
+            'experience' => 'required',
+        ]);
+
         try {
+            $aboutsCount = DB::table('abouts')->count();
 
-            $abouts = DB::table('abouts')
-                ->count();
+            $value = ($aboutsCount > 0) ? 'update' : 'insert';
 
-            if ($abouts > 0) {
-                $value = 'update';
-            } else {
-                $value = 'insert';
-            }
-
+            $image_url = $request->old_image;
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('uploads-image/about-image'), $imageName);
                 $image_url = 'uploads-image/about-image/' . $imageName;
             }
-            else {
-                $image_url = $request->old_image;
+
+            $experience_image_url = $request->old_image2;
+            if ($request->hasFile('experience_image')) {
+                $imageName = time() . '.' . $request->experience_image->extension();
+                $request->experience_image->move(public_path('uploads-image/about-image'), $imageName);
+                $experience_image_url = 'uploads-image/about-image/' . $imageName;
             }
 
             DB::table('abouts')->$value([
                 'title' => $request->title,
                 'description' => $request->description,
-                'mission'=>$request->mission,
-                'vision'=>$request->vision,
-                'image'=>$image_url,
-                'created_at' => Carbon::now(),
+                'mission' => $request->mission,
+                'vision' => $request->vision,
+                'experience' => $request->experience,
+                'image' => $image_url,
+                'experience_image' => $experience_image_url,
+                'created_at' => now(),
             ]);
 
-            return redirect()->route('about.index')
-                ->with('success', 'Added Successfully');
+            return redirect()->route('about.index')->with('success', 'Added Successfully');
         } catch (\Exception $exception) {
-
             return redirect()->back()->with('error', $exception->getMessage());
         }
     }
+
 
 
 }

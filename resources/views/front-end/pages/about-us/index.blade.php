@@ -1,10 +1,14 @@
+@php
+    $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
+@endphp
 @extends('front-end.layouts.master')
 @section('title','About Us')
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5" @if($site_info) style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset($site_info->image)}}) center center no-repeat;"@endif>
         <div class="container text-center py-5">
-            <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
+            <h1 class="display-2 text-white mb-4 animated slideInDown">@if($site_info) {{$site_info->about_top_title}} @endif</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -16,146 +20,173 @@
     </div>
     <!-- Page Header End -->
 
-
-    <!-- Fact Start -->
-    <div class="container-fluid bg-secondary py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">99</h1>
-                        <h5 class="text-white mt-1">Success in getting happy customer</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".3s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">25</h1>
-                        <h5 class="text-white mt-1">Thousands of successful business</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".5s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">120</h1>
-                        <h5 class="text-white mt-1">Total clients who love HighTech</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".7s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">5</h1>
-                        <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Fact End -->
-
-
     <!-- About Start -->
-    <div class="container-fluid py-5 my-5">
-        <div class="container py-5">
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-1">
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
-                    <div class="h-100 position-relative">
-                        <img src="img/about-1.jpg" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
-                        <div class="position-absolute w-75" style="top: 25%; left: 25%;">
-                            <img src="img/about-2.jpg" class="img-fluid w-100 rounded" alt="">
-                        </div>
+                    <div class="h-100">
+                        <img src="@if($about) {{ asset($about->image) }} @endif" class="img-fluid rounded" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
                     <h5 class="text-primary">About Us</h5>
-                    <h1 class="mb-4">About HighTech Agency And It's Innovative IT Solutions</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur quis purus ut interdum. Pellentesque aliquam dolor eget urna ultricies tincidunt. Nam volutpat libero sit amet leo cursus, ac viverra eros tristique. Morbi quis quam mi. Cras vel gravida eros. Proin scelerisque quam nec elementum viverra. Suspendisse viverra hendrerit diam in tempus. Etiam gravida justo nec erat vestibulum, et malesuada augue laoreet.</p>
-                    <p class="mb-4">Pellentesque aliquam dolor eget urna ultricies tincidunt. Nam volutpat libero sit amet leo cursus, ac viverra eros tristique. Morbi quis quam mi. Cras vel gravida eros. Proin scelerisque quam nec elementum viverra. Suspendisse viverra hendrerit diam in tempus.</p>
-                    <a href="" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>
+                    <h1 class="mb-4">@if($about)
+                            {!! $about->title !!}
+                        @endif</h1>
+                    <p>@if($about)
+                            {!! $about->description !!}
+                        @endif</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
-
-
-    <!-- Team Start -->
-    <div class="container-fluid pb-5 mb-5 team">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                <h5 class="text-primary">Our Team</h5>
-                <h1>Meet our expert Team</h1>
+    <div class="container-fluid py-2">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                    <h2>Our Mission</h2>
+                    <p>@if($about)
+                            {!! $about->mission !!}
+                        @endif</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                    <h2>Our Vision</h2>
+                    <p>@if($about)
+                            {!! $about->vision !!}
+                        @endif</p>
+                </div>
             </div>
-            <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src="img/team-1.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                            </div>
-                            <div class="team-name text-center py-3">
-                                <h4 class="">Full Name</h4>
-                                <p class="m-0">Designation</p>
-                            </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                    <h2>Experience</h2>
+                    <p>@if($about)
+                            {!! $about->experience !!}
+                        @endif</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                    <div class="h-100">
+                        <img src="@if($about) {{ asset($about->experience_image) }} @endif" class="img-fluid rounded" alt="">
                     </div>
                 </div>
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src="img/team-2.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                            </div>
-                            <div class="team-name text-center py-3">
-                                <h4 class="">Full Name</h4>
-                                <p class="m-0">Designation</p>
-                            </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-2">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-sm-6">
+                    <div class="h-100 mb-3">
+                        <img src="{{asset('frontend/img/whyus.png')}}" class="img-fluid rounded" alt="">
                     </div>
                 </div>
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src="img/team-3.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                            </div>
-                            <div class="team-name text-center py-3">
-                                <h4 class="">Full Name</h4>
-                                <p class="m-0">Designation</p>
-                            </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src="img/team-4.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                            </div>
-                            <div class="team-name text-center py-3">
-                                <h4 class="">Full Name</h4>
-                                <p class="m-0">Designation</p>
-                            </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                <div class="col-sm-6 my-auto"><p class="h1 text-center"
+                                                 style="color: rgb(246, 1, 134); font-weight: 700;">Why
+                        Choose Us?</p>
+                    <p class="text-center">We know when you face any problem you want to solve it as soon as possible.
+                        Therefor,
+                        will try our best to support you when you want.</p><br>
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                                aria-controls="flush-collapseOne">Best Quality Designs
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample"
+                                         style="">
+                                        <div class="accordion-body">Quality is our agreement. Better quality bring big
+                                            change of
+                                            a company. We are always updated to latest technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                                aria-controls="flush-collapseTwo">24x7 Live Support
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample"
+                                         style="">
+                                        <div class="accordion-body">Let me know what problem are you facing immediately.
+                                            We will
+                                            response you as soon as possible. You can contact us 7 days in a week, 24
+                                            hours in a
+                                            day that means all time. Feel free and comfortable to contact us.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                                aria-controls="flush-collapseThree">Result Oriented Projects
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample"
+                                         style="">
+                                        <div class="accordion-body">We are promised to deliver you a outcome as your
+                                            demand. You
+                                            will pay us according to our result after completing the project
+                                            successfully.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                                aria-controls="flush-collapseFour">Experienced Professionals
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample"
+                                         style="">
+                                        <div class="accordion-body">You haven’t to worry about our experience and
+                                            quality. You
+                                            can fully rely on our service for a better future of your company or
+                                            business.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFive">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                                aria-controls="flush-collapseFive">Support after service
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample"
+                                         style="">
+                                        <div class="accordion-body">You haven’t to worry about our experience and
+                                            quality. You
+                                            can fully rely on our service for a better future of your company or
+                                            business.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,6 +194,93 @@
             </div>
         </div>
     </div>
+    <!-- Team Start -->
+    {{--    <div class="container-fluid pb-5 mb-5 team">--}}
+    {{--        <div class="container pb-5">--}}
+    {{--            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">--}}
+    {{--                <h5 class="text-primary">Our Team</h5>--}}
+    {{--                <h1>Meet our expert Team</h1>--}}
+    {{--            </div>--}}
+    {{--            <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">--}}
+    {{--                <div class="rounded team-item">--}}
+    {{--                    <div class="team-content">--}}
+    {{--                        <div class="team-img-icon">--}}
+    {{--                            <div class="team-img rounded-circle">--}}
+    {{--                                <img src="img/team-1.jpg" class="img-fluid w-100 rounded-circle" alt="">--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-name text-center py-3">--}}
+    {{--                                <h4 class="">Full Name</h4>--}}
+    {{--                                <p class="m-0">Designation</p>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-icon d-flex justify-content-center pb-4">--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="rounded team-item">--}}
+    {{--                    <div class="team-content">--}}
+    {{--                        <div class="team-img-icon">--}}
+    {{--                            <div class="team-img rounded-circle">--}}
+    {{--                                <img src="img/team-2.jpg" class="img-fluid w-100 rounded-circle" alt="">--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-name text-center py-3">--}}
+    {{--                                <h4 class="">Full Name</h4>--}}
+    {{--                                <p class="m-0">Designation</p>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-icon d-flex justify-content-center pb-4">--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="rounded team-item">--}}
+    {{--                    <div class="team-content">--}}
+    {{--                        <div class="team-img-icon">--}}
+    {{--                            <div class="team-img rounded-circle">--}}
+    {{--                                <img src="img/team-3.jpg" class="img-fluid w-100 rounded-circle" alt="">--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-name text-center py-3">--}}
+    {{--                                <h4 class="">Full Name</h4>--}}
+    {{--                                <p class="m-0">Designation</p>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-icon d-flex justify-content-center pb-4">--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="rounded team-item">--}}
+    {{--                    <div class="team-content">--}}
+    {{--                        <div class="team-img-icon">--}}
+    {{--                            <div class="team-img rounded-circle">--}}
+    {{--                                <img src="img/team-4.jpg" class="img-fluid w-100 rounded-circle" alt="">--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-name text-center py-3">--}}
+    {{--                                <h4 class="">Full Name</h4>--}}
+    {{--                                <p class="m-0">Designation</p>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="team-icon d-flex justify-content-center pb-4">--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook-f"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>--}}
+    {{--                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin-in"></i></a>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     <!-- Team End -->
 
 @endsection

@@ -20,41 +20,57 @@ class SiteInfoController extends Controller
             return back()->with($exception->getMessage());
         }
     }
-    public function store(Request $request)
-    {
+public function store(Request $request)
+{
 //        dd($request);
-        $request->validate([
-            'first_name' => 'required',
-            'last_name'=> 'required',
-            'email'=> 'required',
-            'phone'=> 'required',
-            'address' => 'required',
-        ], []);
-        try {
-
-            $abouts = DB::table('site_infos')
-                ->count();
-
-            if ($abouts > 0) {
-                $value = 'update';
-            } else {
-                $value = 'insert';
-            }
-
-            DB::table('site_infos')->$value([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'email' => $request->email,
-                'phone'=>$request->phone,
-                'address'=>$request->address,
-                'created_at' => Carbon::now(),
-            ]);
-
-            return redirect()->route('site-info.index')
-                ->with('success', 'Added Successfully');
-        } catch (\Exception $exception) {
-
-            return redirect()->back()->with('error', $exception->getMessage());
+    $request->validate([
+        'first_name' => 'required',
+        'last_name'=> 'required',
+        'email'=> 'required',
+        'phone'=> 'required',
+        'address' => 'required',
+    ], []);
+    try {
+        $image_url = $request->old_image;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads-image/site-image'), $imageName);
+            $image_url = 'uploads-image/site-image/' . $imageName;
         }
+
+        $abouts = DB::table('site_infos')
+            ->count();
+
+        if ($abouts > 0) {
+            $value = 'update';
+        } else {
+            $value = 'insert';
+        }
+
+        DB::table('site_infos')->$value([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone'=>$request->phone,
+            'address'=>$request->address,
+            'image'=>$image_url,
+            'provide_top_title'=>$request->provide_top_title,
+            'provide_title'=>$request->provide_title,
+            'about_top_title'=>$request->about_top_title,
+            'about_title'=>$request->about_title,
+            'project_top_title'=>$request->project_top_title,
+            'project_title'=>$request->project_title,
+            'customer_top_title'=>$request->customer_top_title,
+            'customer_title'=>$request->customer_title,
+            'hire'=>$request->hire,
+            'created_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('site-info.index')
+            ->with('success', 'Added Successfully');
+    } catch (\Exception $exception) {
+
+        return redirect()->back()->with('error', $exception->getMessage());
     }
+}
 }

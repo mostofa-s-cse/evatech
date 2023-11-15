@@ -56,6 +56,86 @@
                                     <textarea class="form-control" rows="3" placeholder="Address ..." name="address" required>@if($site_infos) {{$site_infos->address}} @endif</textarea>
                                 </div>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label for="">Page Header Image</label><span style="font-weight: bold; color: red"> *</span>
+                                <input name="image" type="file" class="form-control">
+                                <input type="hidden" name="old_image" id="" value="@if($site_infos) {{$site_infos->image}} @endif">
+                                @if($site_infos)
+                                    @if ($site_infos->image)
+                                        <img src="{{ asset($site_infos->image) }}" alt="" class="img-fluid rounded img-thumbnail mt-2" style="width: 50%; height: 300px">
+                                    @endif
+                                @endif
+                            </div>
+
+                            <u><h4 class="text-center mb-3 underline">Create Home Section Name</h4></u>
+
+                            <div class="row px-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputTitle">Service/Provide Top title</label>
+                                        <input type="text" class="form-control" id="exampleInputTitle" name="provide_top_title" required value="@if($site_infos) {{ $site_infos->provide_top_title }}  @endif">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputTitle">Service/Provide title</label>
+                                        <input type="text" class="form-control" id="exampleInputTitle" name="provide_title" required value="@if($site_infos) {{ $site_infos->provide_title }}  @endif">
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">About Us Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="about_top_title" required value="@if($site_infos) {{ $site_infos->about_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">About Us title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="about_title" required value="@if($site_infos) {{ $site_infos->about_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Project Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="project_top_title" required value="@if($site_infos) {{ $site_infos->project_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Project Us title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="project_title" required value="@if($site_infos) {{ $site_infos->project_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row px-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Customer Top title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="customer_top_title" required value="@if($site_infos) {{ $site_infos->customer_top_title }}  @endif">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Customer title</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" name="customer_title" required value="@if($site_infos) {{ $site_infos->customer_title }}  @endif">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group px-4">
+                                    <label for="exampleInputTitle">Hire Us</label>
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="hire" required value="@if($site_infos) {{ $site_infos->hire }}  @endif">
+                                </div>
+
+
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -71,7 +151,9 @@
 @section('js')
     <script>
         $(document).ready(function () {
-            $("#side-siteinfo").addClass('active');
+            $("#side-settings").addClass('active');
+            $("#side-general").addClass('active');
+            $("#side-general").addClass('active-sidebar');
         });
     </script>
 @endsection

@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\ProvideController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SliderController;
 use \App\Http\Controllers\Admin\SiteInfoController;
+use \App\Http\Controllers\Admin\SocialLinkController;
+use \App\Http\Controllers\Admin\CounterController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,7 @@ Route::get('dashboard', [DashBoardController::class, 'index'])->name('dashboard'
 // Slider route started here
 Route::resource('slider',SliderController::class);
 Route::get('slider-status-change',[SliderController::class,'slider_status_change'])->name('slider-status-change');
-
+Route::resource('counter',CounterController::class);
 //project route started here
 Route::resource('project',ProjectController::class);
 Route::get('project-status-change',[ProjectController::class,'project_status_change'])->name('project-status-change');
@@ -58,5 +60,5 @@ Route::resource('contact',ContactController::class);
 //site info
 Route::resource('site-info',SiteInfoController::class);
 
-
+Route::resource('social-link',SocialLinkController::class);
 

@@ -12,47 +12,6 @@ use Yajra\DataTables\DataTables;
 
 class ContactController extends Controller
 {
-//    public function index(Request $request)
-//    {
-//        try {
-//            if ($request->ajax()) {
-//                $data = DB::table('contacts')
-//                    ->orderBy('id', 'DESC')
-//                    ->get();
-//                return DataTables::of($data)
-//                    ->addIndexColumn()
-//                    ->addColumn('name', function ($data) {
-//                        return $data->name;
-//                    })
-//                    ->addColumn('	email', function ($data) {
-//                        return $data->	email;
-//                    })
-//                    ->addColumn('subject', function ($data) {
-//                        return $data->subject;
-//                    })
-//                    ->addColumn('message', function ($data) {
-//                        return $data->message;
-//                    })
-//                    ->addColumn('created_at', function ($data) {
-//                        return $data->created_at->format('Y-m-d H:i:s');
-//                    })
-//                    ->addColumn('action', function ($data) {
-//                        return '<div class="" role="group">
-//                                    <a class="btn btn-sm btn-danger" style="cursor:pointer"
-//                                       href="' . route('contacts.destroy', [$data->id]) . '"
-//                                       onclick="showDeleteConfirm(' . $data->id . ')" title="Delete">
-//                                        <i class="fa fa-trash"></i>
-//                                    </a>
-//                                </div>';
-//                    })
-//                    ->rawColumns(['name','email', 'subject','message', 'action'])
-//                    ->make(true);
-//            }
-//            return view('back-end.pages.contact.index');
-//        } catch (\Exception $exception) {
-//            return redirect()->back()->with('error', $exception->getMessage());
-//        }
-//    }
     public function index(Request $request)
     {
         try {
@@ -68,6 +27,9 @@ class ContactController extends Controller
                     })
                     ->addColumn('email', function ($data) {
                         return $data->email;
+                    })
+                    ->addColumn('phone', function ($data) {
+                        return $data->phone;
                     })
                     ->addColumn('subject', function ($data) {
                         return $data->subject;
@@ -91,6 +53,7 @@ class ContactController extends Controller
                         'email',
                         'subject',
                         'message',
+                        'phone',
                         'created_at',
                         'action'])
                     ->make(true);
@@ -105,10 +68,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->input());
         $request->validate([
             'name' => 'required',
             'subject' => 'required',
             'email' => 'required',
+            'phone' => 'required',
             'message'=>'required'
         ]);
 
@@ -117,12 +82,13 @@ class ContactController extends Controller
                 'name' => $request->name,
                 'subject' => $request->subject,
                 'email' => $request->email,
+                'phone' => $request->phone,
                 'message'=>$request->message,
                 'created_at' => Carbon::now(),
             ]);
 
             return redirect()->route('frontend.index')
-                ->with('success', 'Added Successfully');
+                ->with('success', 'Submit Successfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', $exception->getMessage());
         }
@@ -140,19 +106,6 @@ class ContactController extends Controller
             return redirect()->route('contact.index')
                 ->with('success', 'Deleted Successfully');
 
-        } catch (\Exception $exception) {
-            return back()->with($exception->getMessage());
-        }
-    }
-
-
-
-
-
-    public function create()
-    {
-        try {
-            return view('back-end.pages.contact.create');
         } catch (\Exception $exception) {
             return back()->with($exception->getMessage());
         }

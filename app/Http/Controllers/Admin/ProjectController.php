@@ -53,16 +53,21 @@ class ProjectController extends Controller
                     ->addColumn('action', function ($data) {
                         return '<div class="" role="group">
                                     <a id=""
+                                        href="' . route('project.show', $data->id) . '" class="btn btn-sm btn-primary" style="cursor:pointer"
+                                        title="View">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a id=""
                                         href="' . route('project.edit', $data->id) . '" class="btn btn-sm btn-success" style="cursor:pointer"
                                         title="Edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
-
                                     <a class="btn btn-sm btn-danger" style="cursor:pointer"
                                        href="' . route('project.destroy', [$data->id]) . '"
                                        onclick="showDeleteConfirm(' . $data->id . ')" title="Delete">
                                         <i class="fa fa-trash"></i>
                                     </a>
+
                                 </div>';
                     })
                     ->rawColumns(['image','title', 'description', 'status', 'action'])
@@ -136,15 +141,28 @@ class ProjectController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        try {
+            $projects = DB::table('projects')
+                ->where('id', $id)
+                ->first();
+
+            return view('back-end.pages.project.show', compact('projects'));
+        } catch (\Exception $exception) {
+            return back()->with($exception->getMessage());
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image'
         ]);
 
         try {
@@ -181,7 +199,18 @@ class ProjectController extends Controller
             return redirect()->back()->with('error', $exception->getMessage());
         }
     }
+    public function single_project($id)
+    {
+        try {
+            $projects = DB::table('projects')
+                ->where('id', $id)
+                ->first();
 
+            return view('front-end.pages.project.single', compact('projects'));
+        } catch (\Exception $exception) {
+            return back()->with($exception->getMessage());
+        }
+    }
 
     /**
      * Remove the specified resource from storage.

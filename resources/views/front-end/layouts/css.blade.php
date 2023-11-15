@@ -16,3 +16,6 @@
 
 <!-- Template Stylesheet -->
 <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
+
+<!-- Toastr -->
+<link rel="stylesheet" href="{{asset('backend/plugins/toastr/toastr.min.css')}}">

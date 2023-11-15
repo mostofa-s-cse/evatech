@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->longText('title');
+            $table->longText('description');
             $table->string('image');
             $table->string('status')->default(0);
             $table->timestamps();

@@ -18,6 +18,16 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('address');
+            $table->string('image');
+            $table->longText('provide_top_title');
+            $table->longText('provide_title');
+            $table->longText('about_top_title');
+            $table->longText('about_title');
+            $table->longText('project_top_title');
+            $table->longText('project_title');
+            $table->longText('customer_top_title');
+            $table->longText('customer_title');
+            $table->longText('hire');
             $table->timestamps();
         });
     }

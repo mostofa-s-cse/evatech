@@ -3,7 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +35,5 @@ Route::get('about-us', [HomeController::class, 'about_us'])->name('abouts');
 Route::get('services', [HomeController::class, 'services'])->name('services');
 Route::get('projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('contact-us', [HomeController::class, 'contact_us'])->name('contact');
+Route::post('contact-store', [ContactController::class, 'store'])->name('contact_store');
+Route::get('single_project/{id}', [ProjectController::class, 'single_project'])->name('single_project');

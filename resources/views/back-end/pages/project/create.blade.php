@@ -14,6 +14,14 @@
     </div>
 @endsection
 @section('content')
+<style>
+    .tox-notifications-container{
+        display: none; !important;
+    }
+    .tox .tox-statusbar__text-container {
+        display: none;
+    }
+</style>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -35,7 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="description ..." name="description"></textarea>
+                                    <textarea class="form-control tinymce-editor" rows="3" placeholder="description ..." name="description"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
@@ -68,6 +76,12 @@
         $(document).ready(function () {
             $("#side-project").addClass('active');
         });
-
     </script>
+   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+   <script>
+       tinymce.init({
+           selector: '.tinymce-editor',
+           height: 300,
+       });
+   </script>
 @endsection

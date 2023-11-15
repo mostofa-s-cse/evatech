@@ -8,3 +8,44 @@
 
 <!-- Template Javascript -->
 <script src="{{asset('frontend/js/main.js')}}"></script>
+<script src="{{asset('backend/dist/js/pages/dashboard.js')}}"></script>
+<!-- SweetAlert2 -->
+<script src="{{asset('backend/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<!-- Toastr -->
+<script src="{{asset('backend/plugins/toastr/toastr.min.js')}}"></script>
+
+
+<script>
+
+    @if(Session::has('success'))
+
+    toastr.success("{{ Session::get('success') }}");
+
+    @endif
+
+
+
+    @if(Session::has('info'))
+
+    toastr.info("{{ Session::get('info') }}");
+
+    @endif
+
+
+
+    @if(Session::has('warning'))
+
+    toastr.warning("{{ Session::get('warning') }}");
+
+    @endif
+
+
+
+    @if(Session::has('error'))
+
+    toastr.error("{{ Session::get('error') }}");
+
+    @endif
+
+
+</script>
