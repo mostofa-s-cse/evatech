@@ -4,7 +4,7 @@
 <div class="container-fluid bg-primary">
     <div class="container">
         <nav class="navbar navbar-dark navbar-expand-lg py-0">
-            <a href="index.html" class="navbar-brand">
+            <a href="{{ route('frontend.index') }}" class="navbar-brand">
                 <h1 class="text-white fw-bold d-block">@if($site_info) {{$site_info->first_name}}<span class="text-secondary">{{$site_info->last_name}}</span>  @endif  </h1>
             </a>
             <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
