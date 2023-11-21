@@ -1,3 +1,6 @@
+@php
+    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
+@endphp
 @extends('back-end.layouts.master')
 @section('title','Dashboard')
 @section('content-header')
@@ -15,7 +18,10 @@
 @endsection
 @section('content')
     <div class="row px-2">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-md-12">
+        <h2 class="text-center">@if($site_info) {{ $site_info->first_name }} {{ $site_info->last_name }}  @endif</h2>
+        </div>
+        {{-- <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
@@ -74,7 +80,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
+        <!-- ./col --> --}}
     </div>
 @endsection
 @section('js')

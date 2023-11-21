@@ -59,7 +59,7 @@
                                         <a href="{{route('single_project',$item->id)}}" class="text-center">
                                         <h4 class="text-secondary">{{$item->title}}</h4>
                                        
-                                        <p class="btn btn-primary">more details</p>
+                                        <p class="btn btn-primary">More details</p>
                                     </a>
                                 </div>
                             </div>

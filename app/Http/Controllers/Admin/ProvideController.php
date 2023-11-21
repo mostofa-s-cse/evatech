@@ -141,40 +141,71 @@ class ProvideController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // public function update(Request $request, $id)
+    // {
+    //     // dd($request);
+    //     $request->validate([
+    //         'title' => 'required',
+    //         'sub_title' => 'required',
+    //     ]);
+
+    //     try {
+    //         $provide = DB::table('provides')->where('id', $id)->first();
+
+    //         if (!$provide) {
+    //             return redirect()->route('provide.index')
+    //                 ->with('error', 'Hire not found');
+    //         }
+
+    //         $image_url = $provide->image; // Default to the existing image URL
+
+    //         if ($request->hasFile('image')) {
+    //             $imageName = time() . '.' . $request->image->extension();
+    //             $request->image->move(public_path('uploads-image/provide'), $imageName);
+    //             $image_url = 'uploads-image/provide/' . $imageName;
+    //         }
+
+    //         // Update the slider record
+    //         DB::table('provides')->where('id', $id)->update([
+    //             'title' => $request->title,
+    //             'description' => $request->description,
+    //             'image' => $image_url,
+    //         ]);
+
+    //         return redirect()->route('provide.index')
+    //             ->with('success', 'Updated Successfully');
+    //     } catch (\Exception $exception) {
+    //         return redirect()->back()->with('error', $exception->getMessage());
+    //     }
+    // }
+
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
-            'image' => 'required|image'
+            'description'=>'required'
         ]);
 
         try {
             // Retrieve the existing slider record by its ID
-            $provide = DB::table('provides')->where('id', $id)->first();
+            $provides = DB::table('provides')->where('id', $id)->first();
 
-            if (!$provide) {
+            if (!$provides) {
                 return redirect()->route('provide.index')
-                    ->with('error', 'Provides not found');
+                    ->with('error', 'Hire not found');
             }
 
-            $image_url = $provide->image; // Default to the existing image URL
+            $image_url = $provides->image; // Default to the existing image URL
 
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('uploads-image/provides'), $imageName);
                 $image_url = 'uploads-image/provides/' . $imageName;
-
-                // If a new image is uploaded, you may want to delete the old image here
-                // To do so, you can use the File facade or Storage for more robust handling
             }
-
-            // Update the slider record
             DB::table('provides')->where('id', $id)->update([
                 'title' => $request->title,
-                'description' => $request->description,
+                'description'=>$request->description,
                 'image' => $image_url,
-                // You can update other fields as needed
             ]);
 
             return redirect()->route('provide.index')
@@ -183,7 +214,6 @@ class ProvideController extends Controller
             return redirect()->back()->with('error', $exception->getMessage());
         }
     }
-
 
     /**
      * Remove the specified resource from storage.

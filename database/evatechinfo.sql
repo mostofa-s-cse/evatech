@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 20, 2023 at 04:23 AM
+-- Generation Time: Nov 21, 2023 at 08:59 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -107,9 +107,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'uploads-image/customers/1700040419.png', '1', '2023-11-15 03:26:59', NULL),
-(2, 'uploads-image/customers/1700040436.png', '1', '2023-11-15 03:27:16', NULL),
-(3, 'uploads-image/customers/1700040456.png', '1', '2023-11-15 03:27:36', NULL);
+(1, 'uploads-image/customers/1700555818.png', '1', '2023-11-15 03:26:59', NULL),
+(2, 'uploads-image/customers/1700555792.png', '1', '2023-11-15 03:27:16', NULL),
+(3, 'uploads-image/customers/1700555774.png', '1', '2023-11-15 03:27:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,14 +147,14 @@ CREATE TABLE `hires` (
 --
 
 INSERT INTO `hires` (`id`, `name`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Long Experience', 'uploads-image/hires/1700029909.png', '1', '2023-11-15 00:31:49', NULL),
-(2, 'Focus On Results', 'uploads-image/hires/1700029949.png', '1', '2023-11-15 00:32:29', NULL),
-(3, 'Run Technical Audit', 'uploads-image/hires/1700029981.png', '1', '2023-11-15 00:33:01', NULL),
-(4, 'Fast Delivery', 'uploads-image/hires/1700030005.png', '1', '2023-11-15 00:33:25', NULL),
-(5, 'Satisfied Guarantee', 'uploads-image/hires/1700030027.png', '1', '2023-11-15 00:33:47', NULL),
-(6, 'Quick Support', 'uploads-image/hires/1700030047.png', '1', '2023-11-15 00:34:07', NULL),
-(7, 'Highly Professional', 'uploads-image/hires/1700030072.png', '1', '2023-11-15 00:34:32', NULL),
-(8, 'Excellent UI-UX', 'uploads-image/hires/1700030091.png', '1', '2023-11-15 00:34:51', NULL);
+(1, 'Long Experience', 'uploads-image/hires/1700554613.png', '1', '2023-11-15 00:31:49', NULL),
+(2, 'Focus On Results', 'uploads-image/hires/1700554600.png', '1', '2023-11-15 00:32:29', NULL),
+(3, 'Run Technical Audit', 'uploads-image/hires/1700554586.png', '1', '2023-11-15 00:33:01', NULL),
+(4, 'Fast Delivery', 'uploads-image/hires/1700554574.png', '1', '2023-11-15 00:33:25', NULL),
+(5, 'Satisfied Guarantee', 'uploads-image/hires/1700554561.png', '1', '2023-11-15 00:33:47', NULL),
+(6, 'Quick Support', 'uploads-image/hires/1700554548.png', '1', '2023-11-15 00:34:07', NULL),
+(7, 'Highly Professional', 'uploads-image/hires/1700554536.png', '1', '2023-11-15 00:34:32', NULL),
+(8, 'Excellent UI-UX', 'uploads-image/hires/1700554523.png', '1', '2023-11-15 00:34:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -284,15 +284,15 @@ CREATE TABLE `provides` (
 --
 
 INSERT INTO `provides` (`id`, `title`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'It Solution', 'It is vital to secure your business with a reputable IT solution services provider', 'uploads-image/provides/1700028723.png', '1', '2023-11-15 00:12:03', NULL),
-(2, 'Web Development', 'Responsive Web Design always plays an important role whenever going to promote your website.', 'uploads-image/provides/1700028765.png', '1', '2023-11-15 00:12:45', NULL),
-(3, 'Consultancy', 'As consultants, we need to be ruthless in discerning what is important and what is just noise.', 'uploads-image/provides/1700028808.png', '1', '2023-11-15 00:13:28', NULL),
-(4, 'SEO Optimizition', 'It’s much easier to double your business by doubling your conversion rate than by doubling your traffic.', 'uploads-image/provides/1700028858.png', '1', '2023-11-15 00:14:18', NULL),
-(5, 'Online Marketing', 'Ignoring online marketing is like opening a business but not telling anyone.', 'uploads-image/provides/1700028907.png', '1', '2023-11-15 00:15:07', NULL),
-(6, 'Boosting', 'Content builds relationships. Relationship are built on trust. Trust drives revenue.', 'uploads-image/provides/1700028946.png', '1', '2023-11-15 00:15:46', NULL),
-(7, 'Creative Design', 'Design can be art. Design can be simple. That’s why it’s so complicated.', 'uploads-image/provides/1700028996.png', '1', '2023-11-15 00:16:36', NULL),
-(8, 'E-Commerce', 'Ecommerce isn’t the cherry on the cake, it’s the new cake.', 'uploads-image/provides/1700029035.png', '1', '2023-11-15 00:17:15', NULL),
-(9, 'Custom Software', 'Customization Is expensive but it make your system difference.', 'uploads-image/provides/1700029070.png', '1', '2023-11-15 00:17:50', NULL);
+(1, 'It Solution', 'It is vital to secure your business with a reputable IT solution services provider', 'uploads-image/provides/1700550338.png', '1', '2023-11-15 00:12:03', NULL),
+(2, 'Web Development', 'Responsive Web Design always plays an important role whenever going to promote your website.', 'uploads-image/provides/1700550323.png', '1', '2023-11-15 00:12:45', NULL),
+(3, 'Consultancy', 'As consultants, we need to be ruthless in discerning what is important and what is just noise.', 'uploads-image/provides/1700550309.png', '1', '2023-11-15 00:13:28', NULL),
+(4, 'SEO Optimizition', 'It’s much easier to double your business by doubling your conversion rate than by doubling your traffic.', 'uploads-image/provides/1700550295.png', '1', '2023-11-15 00:14:18', NULL),
+(5, 'Online Marketing', 'Ignoring online marketing is like opening a business but not telling anyone.', 'uploads-image/provides/1700550282.png', '1', '2023-11-15 00:15:07', NULL),
+(6, 'Boosting', 'Content builds relationships. Relationship are built on trust. Trust drives revenue.', 'uploads-image/provides/1700550263.png', '1', '2023-11-15 00:15:46', NULL),
+(7, 'Creative Design', 'Design can be art. Design can be simple. That’s why it’s so complicated.', 'uploads-image/provides/1700550250.png', '1', '2023-11-15 00:16:36', NULL),
+(8, 'E-Commerce', 'Ecommerce isn’t the cherry on the cake, it’s the new cake.', 'uploads-image/provides/1700550235.png', '1', '2023-11-15 00:17:15', NULL),
+(9, 'Custom Software', 'Customization Is expensive but it make your system difference.', 'uploads-image/provides/1700550112.png', '1', '2023-11-15 00:17:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -318,7 +318,7 @@ CREATE TABLE `reviews` (
 
 INSERT INTO `reviews` (`id`, `title`, `name`, `designation`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
 (1, '\"Amazing Designs and Quality Work!\"', 'Mohammad Mahbub Hassan', '\"Chairman of OSL-KNS Group\"', 'Great work from Eva Technology, I am so amazed with their service.\r\n I am grateful to them. They have provided quality work for us. I will recommended to other for getting best IT service.', 'uploads-image/reviews/1700040631.png', '1', '2023-11-15 03:30:31', NULL),
-(2, '\"Great Service\"', 'Emmabay Enterprise', '\"Iyana Ipaja, Lagos\"', 'Very good experience with Eva Technology. So impress by reactivity and the website result. He took time to understand my request and was really reactive.\r\n I will definitely recommend Eva Technology to my friend. Thanks a lot, you made my day.', 'uploads-image/reviews/1700040884.png', '1', '2023-11-15 03:34:44', NULL);
+(2, '\"Great Service\"', 'Emmabay Enterprise', '\"Iyana Ipaja, Lagos\"', 'Very good experience with Eva Technology. So impress by reactivity and the website result. He took time to understand my request and was really reactive.\r\n I will definitely recommend Eva Technology to my friend. Thanks a lot, you made my day.', 'uploads-image/reviews/1700555987.png', '1', '2023-11-15 03:34:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -568,7 +568,7 @@ ALTER TABLE `counters`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -580,7 +580,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `hires`
 --
 ALTER TABLE `hires`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -604,13 +604,13 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `provides`
 --
 ALTER TABLE `provides`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `site_infos`
@@ -622,7 +622,7 @@ ALTER TABLE `site_infos`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `social_links`

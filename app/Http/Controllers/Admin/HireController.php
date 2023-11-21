@@ -139,7 +139,6 @@ class HireController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image'
         ]);
 
         try {
