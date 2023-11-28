@@ -25,7 +25,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('provide.update', $provides->id)}}" method="post" enctype="multipart/form-data">
+                        {{-- <form action="{{route('provide.update', $provides->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -47,6 +47,32 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text">Upload</span>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-default float-right">Cancel</button>
+                            </div>
+                        </form> --}}
+                        <form action="{{route('provide.update', $provides->id)}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputTitle">Title</label>
+                                    <input type="text" class="form-control" id="exampleInputTitle" name="title" value="{{$provides->title}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputTitle">Description</label>
+                                    <textarea type="text" class="form-control" id="exampleInputTitle" name="description" > {{$provides->description}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Image</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="exampleInputFile" name="image" value="{{$provides->image}}">
                                     </div>
                                 </div>
                             </div>

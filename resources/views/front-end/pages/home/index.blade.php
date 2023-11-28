@@ -95,7 +95,7 @@
                                     $description_provides = substr($item->description, 0, 100);
                                 @endphp
                                 <p class="mb-4">{{ $description_provides}}</p>
-                                <a href="{{ route('services') }}" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                                {{-- <a href="{{ route('services') }}" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a> --}}
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                         <div class="project-content">
                             <a href="{{route('single_project',$item->id)}}" class="text-center">
                                 <h4 class="text-secondary">{{$item->title}}</h4>
-                                <p class="m-0 text-white btn btn-primary">more details</p>
+                                <p class="m-0 text-white btn btn-primary">More details</p>
                             </a>
                         </div>
                     </div>

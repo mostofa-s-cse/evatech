@@ -32,11 +32,10 @@
                             <div class="">
                                 <img src="{{ asset($projects->image) }}" class="img-fluid w-100 rounded" alt="" style="height: 30rem">
                             </div>
-                                     <div class="col-md-12 col-lg-12">
-                                              
-                                               <p>{!!$projects->description!!}</p>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 col-lg-12">    
+                                  <p>{!!$projects->description!!}</p>
+                                    </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -57,3 +56,5 @@
 
     </script>
 @endsection
+
+
