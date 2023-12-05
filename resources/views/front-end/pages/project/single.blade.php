@@ -7,7 +7,7 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5" @if($site_info) style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset($site_info->image)}}) center center no-repeat;"@endif>
         <div class="container text-center py-5">
-            <h1 class="display-2 text-white mb-4 animated slideInDown">Projects</h1>
+            <h1 class="display-2 text-white mb-4 animated slideInDown">{{$projects->title}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>

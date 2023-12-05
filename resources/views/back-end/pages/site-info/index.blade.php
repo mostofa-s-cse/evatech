@@ -56,6 +56,18 @@
                                     <textarea class="form-control" rows="3" placeholder="Address ..." name="address" required>@if($site_infos) {{$site_infos->address}} @endif</textarea>
                                 </div>
                             </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="">Site Logo</label><span style="font-weight: bold; color: red"> *</span>
+                                <input name="logo" type="file" class="form-control">
+                                <input type="hidden" name="old_logo" id="" value="@if($site_infos) {{$site_infos->logo}} @endif">
+                                @if($site_infos)
+                                    @if ($site_infos->logo)
+                                        <img src="{{ asset($site_infos->logo) }}" alt="" class="img-fluid rounded img-thumbnail mt-2" style="width: 50%; height: 300px">
+                                    @endif
+                                @endif
+                            </div>
+
                             <div class="form-group col-md-12">
                                 <label for="">Page Header Image</label><span style="font-weight: bold; color: red"> *</span>
                                 <input name="image" type="file" class="form-control">

@@ -36,7 +36,7 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a>
+<a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top" style="background-color: #800000d5;border-color:#800000"><i class="fa fa-arrow-up text-white"></i></a>
 
 
 <!-- JavaScript Libraries -->

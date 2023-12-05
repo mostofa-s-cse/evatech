@@ -22,7 +22,6 @@ class SiteInfoController extends Controller
     }
 public function store(Request $request)
 {
-//        dd($request);
     $request->validate([
         'first_name' => 'required',
         'last_name'=> 'required',
@@ -33,9 +32,16 @@ public function store(Request $request)
     try {
         $image_url = $request->old_image;
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('uploads-image/site-image'), $imageName);
-            $image_url = 'uploads-image/site-image/' . $imageName;
+            $image_name = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads-image/site-image'), $image_name);
+            $image_url = 'uploads-image/site-image/' . $image_name;
+        }
+
+        $logo_url = $request->old_logo;
+        if ($request->hasFile('logo')) {
+            $logo_name = time() . '.' . $request->logo->extension();
+            $request->logo->move(public_path('uploads-image/site-image'), $logo_name);
+            $logo_url = 'uploads-image/site-image/' . $logo_name;
         }
 
         $abouts = DB::table('site_infos')
@@ -54,6 +60,7 @@ public function store(Request $request)
             'phone'=>$request->phone,
             'address'=>$request->address,
             'image'=>$image_url,
+            'logo'=>$logo_url,
             'provide_top_title'=>$request->provide_top_title,
             'provide_title'=>$request->provide_title,
             'about_top_title'=>$request->about_top_title,

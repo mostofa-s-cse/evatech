@@ -24,13 +24,13 @@
     <!-- Page Header End -->
 
     <!-- Fact Start -->
-    <div class="container-fluid bg-secondary py-5">
+    <div class="container-fluid py-5" style="background-color: #800000d5">
         <div class="container">
             <div class="row">
                 @foreach($counter as $item)
                     <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
                         <div class="d-flex counter">
-                            <h1 class="me-3 text-primary counter-value">{{$item->number}}</h1>
+                            <h1 class="me-3 text-primary counter-value" style="color: #0dcaf0">{{$item->number}}</h1>
                             <h5 class="text-white mt-1">{{$item->title}}</h5>
                         </div>
                     </div>

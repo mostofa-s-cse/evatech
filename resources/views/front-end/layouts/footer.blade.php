@@ -3,16 +3,18 @@
     $social_link = \Illuminate\Support\Facades\DB::table('social_links')->get();
     $about = \Illuminate\Support\Facades\DB::table('abouts')->first();
 @endphp
-<div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+<div class="container-fluid footer wow fadeIn" data-wow-delay=".3s" style="background-color: #15233C">
     <div class="container pt-5 pb-4">
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <a href="#">
-                    <h1 class="text-white fw-bold d-block">@if($site_info) {{$site_info->first_name}}<span class="text-secondary">{{$site_info->last_name}}</span>  @endif  </h1>
+                    @if ($site_info->logo)
+                                        <img src="{{ asset($site_info->logo) }}" alt="" class="img-fluid rounded  mt-2" style="width: 50%;height: 50%;">
+                                    @endif
                 </a>
 
                 @php
-                    $description = ($about) ? substr($about->description, 0, 150) : null;
+                    $description = ($about) ? substr($about->description, 0, 80) : null;
                 @endphp
                 <p class="mt-4 text-light">{!! $description !!}... <a href="{{ route('abouts') }}">More details</a></p>
                 <div class="d-flex hightech-link">

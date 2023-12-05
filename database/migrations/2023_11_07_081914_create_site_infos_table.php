@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('image');
+            $table->string('logo');
             $table->longText('provide_top_title');
             $table->longText('provide_title');
             $table->longText('about_top_title');

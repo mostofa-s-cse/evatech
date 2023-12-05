@@ -25,13 +25,13 @@
 
 
     <!-- Fact Start -->
-    <div class="container-fluid bg-secondary py-5">
+    <div class="container-fluid py-5" style="background-color: #800000d5">
         <div class="container">
             <div class="row">
                 @foreach($counter as $item)
                     <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
                         <div class="d-flex counter">
-                            <h1 class="me-3 text-primary counter-value">{{$item->number}}</h1>
+                            <h1 class="me-3 text-primary counter-value" style="color: #0dcaf0">{{$item->number}}</h1>
                             <h5 class="text-white mt-1">{{$item->title}}</h5>
                         </div>
                     </div>
@@ -57,14 +57,14 @@
                                 <img src="{{ asset($item->image) }}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                         <a href="{{route('single_project',$item->id)}}" class="text-center">
-                                        <h4 class="text-secondary">{{$item->title}}</h4>
+                                        <h4 class="" style="color: #0dcaf0">{{$item->title}}</h4>
                                        
                                         <p class="btn btn-primary">More details</p>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <a href="{{route('single_project',$item->id)}}"> <h5 class="text-center mt-2 text-secondary">{{$item->title}}</h5></a>
+                        <a href="{{route('single_project',$item->id)}}"> <h5 class="text-center mt-2 text-black">{{$item->title}}</h5></a>
                     </div>
                 @endforeach
             </div>
