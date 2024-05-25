@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@yield('title') || BNM</title>
+    <title>@yield('title') || EvaTech</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
@@ -19,6 +19,10 @@
 </div>
 <!-- Spinner End -->
 
+<!-- Topbar Start -->
+@include('front-end.layouts.topbar')
+<!-- Topbar End -->
+
 <!-- Navbar Start -->
 @include('front-end.layouts.nav')
 <!-- Navbar End -->
@@ -32,7 +36,7 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-square rounded-circle back-to-top" style="background-color: #e82629; border-color: #e82629"><i class="fa fa-arrow-up text-white"></i></a>
+<a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a>
 
 
 <!-- JavaScript Libraries -->
