@@ -1,6 +1,3 @@
-@php
-    $site_info = \Illuminate\Support\Facades\DB::table('site_infos')->first();
-@endphp
 @extends('layouts.app')
 @section('title','Login')
 @section('content')
@@ -8,7 +5,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1" style="text-decoration: none"><b>@if($site_info) {{$site_info->first_name}}</b>{{$site_info->last_name}} @endif</a>
+                <a href="#" class="h1" style="text-decoration: none"><b>BNM</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>

@@ -32,8 +32,10 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'frontendHome'])->name('frontend.index');
 Route::get('about-us', [HomeController::class, 'about_us'])->name('abouts');
-Route::get('services', [HomeController::class, 'services'])->name('services');
-Route::get('projects', [HomeController::class, 'projects'])->name('projects');
+Route::get('party', [HomeController::class, 'party'])->name('party');
+Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('donate', [HomeController::class, 'donate'])->name('donate');
+Route::get('news', [HomeController::class, 'news'])->name('news');
 Route::get('contact-us', [HomeController::class, 'contact_us'])->name('contact');
 Route::post('contact-store', [ContactController::class, 'store'])->name('contact_store');
 Route::get('single_project/{id}', [ProjectController::class, 'single_project'])->name('single_project');
